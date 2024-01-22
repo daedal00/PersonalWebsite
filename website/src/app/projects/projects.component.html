@@ -1,1 +1,17 @@
-<p>projects works!</p>
+<div class="container mt-5">
+    <h2>My Projects</h2>
+    <div class="row">
+      <!-- Use *ngFor to loop through your projects -->
+      <div class="col-md-4 mb-3" *ngFor="let project of projects">
+        <div class="card">
+          <img src="path-to-project-image" class="card-img-top" alt="Project Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ project.title }}</h5>
+            <p class="card-text">{{ project.description }}</p>
+            <a href="{{ project.link }}" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
