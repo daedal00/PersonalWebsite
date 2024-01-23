@@ -1,1 +1,53 @@
 @import '../node_modules/bootstrap/scss/bootstrap';
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+
+    modal-content {
+        background-color: #000; // Dark background for dark mode
+        color: #fff; // White text for dark mode
+      }
+  }
+
+  .modal-content {
+    background-color: #fff; // Light background for light mode
+    color: #000; // Dark text for light mode
+  }
+  
+  .dark-mode .navbar {
+    background-color: #1a1a1a;
+  }
+  
+  .navbar .bi {
+    color: #fffefe;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* viewport height */
+  }
+  
+  .content {
+    flex: 1; /* Expand to fill the available space */
+  }
+  
+  .footer {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    text-align: center;
+  }
+  

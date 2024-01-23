@@ -1,0 +1,19 @@
+.project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; // Color for light mode
+    padding: 1rem;
+    // More styling as needed
+  
+    body.dark-mode & {
+      color: #fff; // Color for dark mode
+      // Remove background-color if it's set elsewhere and interfering
+    }
+  }
+  
+  // Card styles in dark mode
+  body.dark-mode .card {
+    background-color: #000; // Black background for dark mode
+    color: #fff; // White text for dark mode
+  }
+  

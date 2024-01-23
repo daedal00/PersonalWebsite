@@ -1,17 +1,33 @@
 <div class="container mt-5">
     <h2>My Projects</h2>
     <div class="row">
-      <!-- Use *ngFor to loop through your projects -->
       <div class="col-md-4 mb-3" *ngFor="let project of projects">
-        <div class="card">
-          <img src="path-to-project-image" class="card-img-top" alt="Project Image">
-          <div class="card-body">
-            <h5 class="card-title">{{ project.title }}</h5>
-            <p class="card-text">{{ project.description }}</p>
-            <a href="{{ project.link }}" class="btn btn-primary">View Project</a>
-          </div>
+        <div class="card" (click)="selectProject(project)">
+            <div class="card-body text-center">
+                <h5 class="card-title project-title">{{ project.title }}</h5>
+              </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal for displaying selected project -->
+    <div #projectModal class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="projectModalLabel">{{ selectedProject?.title }}</h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true">&times;</span>
+            </button>              
+            </div>
+            <div class="modal-body">
+            <p><strong>Description:</strong> {{ selectedProject?.description }}</p>
+            <p><strong>Technologies:</strong> {{ selectedProject?.technologies?.join(', ') }}</p>
+            <a href="{{ selectedProject?.link }}" class="btn btn-primary" target="_blank">View Project</a>
+            <a *ngIf="selectedProject?.documentationLink" href="{{ selectedProject?.documentationLink }}" class="btn btn-secondary" target="_blank">View Documentation</a>
+            </div>
+        </div>
+        </div>
+    </div>  
   </div>
   
