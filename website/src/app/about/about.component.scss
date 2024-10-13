@@ -1,0 +1,56 @@
+.section {
+  padding: 80px 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+.section-title {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.about-content {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.contact-info {
+  margin-top: 1.5rem;
+}
+
+.contact-info li {
+  margin-bottom: 0.5rem;
+}
+
+.skills-section {
+  margin-top: 2rem;
+}
+
+.skills-title {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.badge {
+  font-size: 0.9rem;
+  padding: 0.5em 1em;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode {
+  .about-content {
+    border: 1px solid var(--card-border);
+  }
+
+  .badge {
+    border: 1px solid var(--card-border);
+  }
+}

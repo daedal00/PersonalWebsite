@@ -1,53 +1,242 @@
-@import '../node_modules/bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
-body.dark-mode {
-    background-color: #121212;
-    color: white;
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #f8f9fa;
+  --card-border: #e0e0e0;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --badge-bg: #6c757d;
+  --badge-text: #ffffff;
+  --section-bg: #f0f0f0;
+  --card-hover-bg: #e9ecef;
+  --component-outline: #d0d0d0;
+}
 
-    modal-content {
-        background-color: #000; // Dark background for dark mode
-        color: #fff; // White text for dark mode
-      }
-  }
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-border: #2c2c2c;
+  --link-color: #4da3ff;
+  --link-hover-color: #80bdff;
+  --badge-bg: #3a3a3a;
+  --badge-text: #ffffff;
+  --section-bg: #1a1a1a;
+  --card-hover-bg: #2a2a2a;
+  --component-outline: #333333;
+}
 
-  .modal-content {
-    background-color: #fff; // Light background for light mode
-    color: #000; // Dark text for light mode
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+.section {
+  background-color: var(--section-bg);
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 1px var(--component-outline);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1),
+      0 0 0 1px var(--component-outline);
   }
-  
-  .dark-mode .navbar {
-    background-color: #1a1a1a;
+}
+
+.btn-outline-primary {
+  color: var(--link-color);
+  border-color: var(--link-color);
+
+  &:hover {
+    background-color: var(--link-color);
+    color: var(--bg-color);
   }
-  
-  .navbar .bi {
-    color: #fffefe;
+}
+
+.btn-outline-secondary {
+  color: var(--text-color);
+  border-color: var(--text-color);
+
+  &:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
   }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+}
+
+.badge {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+.navbar {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand,
+  .nav-link {
+    color: var(--text-color);
+
+    &:hover {
+      color: var(--link-hover-color);
+    }
   }
-  
-  body {
-    display: flex;
-    flex-direction: column;
+}
+
+.footer {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--link-hover-color);
   }
-  
-  .app-root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* viewport height */
-  }
-  
-  .content {
-    flex: 1; /* Expand to fill the available space */
-  }
-  
-  .footer {
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    text-align: center;
-  }
-  
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--badge-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--link-color);
+}
+
+// Modal styles
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: translate(0, -50px);
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+// Add these new styles for experience and projects components
+.experience-item,
+.project-item {
+  border: 1px solid var(--component-outline);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.experience-header,
+.project-header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--component-outline);
+  padding: 1rem;
+}
+
+.experience-content,
+.project-content {
+  background-color: var(--card-bg);
+  padding: 1rem;
+}
+
+// Add a subtle transition for smooth color changes
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+// Remove any color transitions from text elements
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+li {
+  transition: none;
+}

@@ -1,0 +1,33 @@
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section-title text-center">Experience</h2>
+    <div class="experience-card">
+      <div class="experience-header">
+        <h3>{{ job.title }}</h3>
+        <p class="company">
+          <a
+            [href]="job.companyLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ job.company }}</a
+          >
+        </p>
+        <p class="period">{{ job.period }}</p>
+      </div>
+      <div class="experience-content">
+        <h4>Key Responsibilities:</h4>
+        <ul>
+          <li *ngFor="let responsibility of job.responsibilities">
+            {{ responsibility }}
+          </li>
+        </ul>
+        <h4>Skills Used:</h4>
+        <div class="skills">
+          <span *ngFor="let skill of job.skills" class="badge">{{
+            skill
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

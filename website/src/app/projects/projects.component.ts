@@ -1,73 +1,89 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Project } from './projects.interface';
+import { Component } from '@angular/core';
+
+interface Project {
+  title: string;
+  shortDescription: string;
+  fullDescription: string[];
+  technologies: string[];
+  icon: string;
+  darkModeIcon?: string; // New property for dark mode specific icons
+  projectLink?: string;
+  repoLink?: string;
+  expanded: boolean;
+}
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  @ViewChild('projectModal') projectModal!: ElementRef;
-
   projects: Project[] = [
     {
+      title: 'Personal Portfolio Website',
+      shortDescription:
+        'A responsive, modern portfolio showcasing my projects and skills',
+      fullDescription: [
+        'Designed and developed a responsive single-page application using Angular and TypeScript',
+        'Implemented a custom dark mode feature with smooth transitions between light and dark themes',
+        'Created reusable components for projects, experience, and skills sections to ensure maintainability',
+        'Utilized CSS variables and SCSS for consistent styling and easy theme customization',
+        'Integrated Bootstrap for responsive design and custom styling for a unique look',
+        'Implemented smooth scrolling and interactive elements to enhance user experience',
+      ],
+      technologies: ['Angular', 'TypeScript', 'SCSS', 'Bootstrap', 'HTML5'],
+      icon: 'bi-person-badge',
+      projectLink: 'https://samuelyongkim.com/',
+      repoLink: 'https://github.com/daedal00/PersonalWebsite',
+      expanded: false,
+    },
+    {
       title: 'FoodTalk',
-      description: 'Collaborated on developing "Food Talk", a dynamic social platform for local food enthusiasts. The project involved user authentication, post creation, commenting, and profile management. Emphasized database optimization using SQL and Oracle for efficient data handling and swift retrieval processes. Focused on designing responsive user interfaces and maintained comprehensive documentation throughout the project.',
-      technologies: ['HTML/CSS', 'PHP', 'SQL', 'Oracle'],
-      imageUrl: 'assets/foodtalk.png', 
-      link: 'https://www.students.cs.ubc.ca/~samuelk2/project/login.php',
-      documentationLink: 'assets/foodtalk_documentation.pdf'
+      shortDescription: 'A dynamic social platform for food enthusiasts',
+      fullDescription: [
+        'Led the development of core features such as user authentication, post creation, and profile management.',
+        'Optimized SQL queries, reducing database query time by 20%.',
+        'Collaborated in a team of 3 to design, test, and launch the platform within 6 weeks using Agile methodology.',
+        'Authored comprehensive documentation including testing procedures, app functionality, and UML diagrams.',
+      ],
+      technologies: ['PHP', 'CSS', 'HTML', 'SQL', 'Oracle'],
+      icon: 'bi-chat-square-text',
+      projectLink: 'https://www.students.cs.ubc.ca/~samuelk2/project/login.php',
+      repoLink: 'https://github.com/daedal00/FoodTalk',
+      expanded: false,
     },
     {
-      title: 'Personal Finance App',
-      description: 'Developed a full-stack financial application integrating MongoDB and PlaidAPI. Implemented RESTful APIs for user management processes, including registration and authentication. The application features CRUD operations for transaction and account management, utilizing Spring Boot for a scalable backend architecture.',
-      technologies: ['Java SpringBoot', 'React', 'MongoDB', 'PlaidAPI'],
-      imageUrl: 'assets/pie.png',  // Replace with actual image path
-      link: 'https://github.com/daedal00/Finance-App',  // Actual link to FoodTalk
+      title: 'BudgetView',
+      shortDescription:
+        'A full-stack finance app with real-world bank account integration',
+      fullDescription: [
+        'Spearheaded the development in 8 weeks, integrating MongoDB and Plaid API for secure bank account connections.',
+        'Developed RESTful APIs with OAuth 2.0 for user management.',
+        'Implemented CRUD operations for transaction and account management.',
+        'Built a scalable backend architecture with Spring Boot, optimizing API response times.',
+      ],
+      technologies: ['Java Spring Boot', 'React', 'MongoDB', 'PlaidAPI'],
+      icon: 'bi-piggy-bank',
+      repoLink: 'https://github.com/daedal00/Finance-App',
+      expanded: false,
     },
     {
-      title: 'AllTheRecipe Grabber',
-      description: 'Engineered a recipe search application with real-time data scraping from AllRecipes.com. Employed Docker for backend containerization to ensure scalability and consistent deployment. The application provides a seamless recipe searching experience with a user-friendly interface and efficient backend processes.',
-      technologies: ['Python', 'Flask', 'HTML/CSS', 'Javascript'],
-      imageUrl: 'assets/foodtalk.png', 
-      link: 'https://github.com/daedal00/AllTheRecipe-Grabber',
+      title: 'RecipeScout',
+      shortDescription: 'A recipe search app with dynamic web scraping',
+      fullDescription: [
+        'Engineered an app that scrapes recipes from AllRecipes.com based on user-input ingredients.',
+        'Accelerated search speed by 15% through asynchronous web scraping and multi-threading.',
+        'Designed a responsive, user-friendly interface for both desktop and mobile users.',
+        'Enhanced accessibility and user experience across different screen sizes.',
+      ],
+      technologies: ['Python', 'Flask', 'HTML', 'CSS', 'JavaScript'],
+      icon: 'bi-search',
+      repoLink: 'https://github.com/daedal00/AllTheRecipe-Grabber',
+      expanded: false,
     },
-    {
-      title: 'Maplestory Cubing Simulator',
-      description: 'Created a Java-based simulation application that replicates the cubing process from the MMORPG, Maplestory. The project includes CRUD operations with JSON persistence, an event logging system for user actions, and robust JUnit testing to ensure error-free functionality.',
-      technologies: ['Java', 'IntelliJ', 'Java Swing', 'JUnit'],
-      imageUrl: 'assets/foodtalk.png', 
-      link: 'https://github.com/daedal00/Maplestory-Cubing-Simulator',
-    },
-    {
-      title: 'Destination Diner',
-      description: 'A unique application that recommends restaurants along a specified route. Users input their starting point and destination, and the application suggests eateries within a certain radius of the route. Developed using Python, it integrates with Google Maps for route calculation and Yelp for fetching restaurant details.',
-      technologies: ['Google Maps/Yelp API', 'Python'],
-      imageUrl: 'assets/foodtalk.png', 
-      link: 'https://github.com/daedal00/destination_diner',
-    },
-    {
-      title: 'Pomodoro Timer',
-      description: 'Simple Pomodoro Timer Project as I am a frequent user of this study method while studying for school.',
-      technologies: ['Java', 'Java Swing'],
-      imageUrl: 'assets/foodtalk.png', 
-      link: 'https://github.com/daedal00/PomodoroTimer',
-    },
-    // ... other projects with details from your resume
   ];
 
-  selectedProject: Project | null = null;
-
-  constructor() {}
-
-  selectProject(project: Project): void {
-    this.selectedProject = project;
-    // Trigger the modal to open
-    ($(this.projectModal.nativeElement) as any).modal('show');
+  toggleProject(project: Project): void {
+    project.expanded = !project.expanded;
   }
-
-  closeModal(): void {
-    ($(this.projectModal.nativeElement) as any).modal('hide');
-  }
-  
 }

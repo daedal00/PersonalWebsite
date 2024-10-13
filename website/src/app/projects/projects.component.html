@@ -1,33 +1,55 @@
-<div class="container mt-5">
-    <h2>My Projects</h2>
-    <div class="row">
-      <div class="col-md-4 mb-3" *ngFor="let project of projects">
-        <div class="card" (click)="selectProject(project)">
-            <div class="card-body text-center">
-                <h5 class="card-title project-title">{{ project.title }}</h5>
-              </div>
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">My Projects</h2>
+    <div class="project-list">
+      <div class="project-item" *ngFor="let project of projects">
+        <div class="project-header" (click)="toggleProject(project)">
+          <div class="d-flex align-items-center">
+            <i class="bi {{ project.icon }} fs-2 me-3"></i>
+            <h3 class="project-title mb-0">{{ project.title }}</h3>
+          </div>
+          <i
+            class="bi"
+            [ngClass]="{
+              'bi-chevron-down': !project.expanded,
+              'bi-chevron-up': project.expanded
+            }"
+          ></i>
+        </div>
+        <div class="project-content" [ngClass]="{ expanded: project.expanded }">
+          <p class="project-description">{{ project.shortDescription }}</p>
+          <h4>Key Features:</h4>
+          <ul>
+            <li *ngFor="let point of project.fullDescription">{{ point }}</li>
+          </ul>
+          <h4>Technologies Used:</h4>
+          <div class="d-flex flex-wrap">
+            <span
+              *ngFor="let tech of project.technologies"
+              class="badge bg-secondary me-2 mb-2"
+              >{{ tech }}</span
+            >
+          </div>
+          <div class="project-links mt-3">
+            <a
+              *ngIf="project.projectLink"
+              [href]="project.projectLink"
+              target="_blank"
+              class="btn btn-outline-primary btn-sm me-2"
+            >
+              <i class="bi bi-link-45deg"></i> Demo
+            </a>
+            <a
+              *ngIf="project.repoLink"
+              [href]="project.repoLink"
+              target="_blank"
+              class="btn btn-outline-secondary btn-sm"
+            >
+              <i class="bi bi-github"></i> Repo
+            </a>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Modal for displaying selected project -->
-    <div #projectModal class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="projectModalLabel">{{ selectedProject?.title }}</h5>
-            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
-                <span aria-hidden="true">&times;</span>
-            </button>              
-            </div>
-            <div class="modal-body">
-            <p><strong>Description:</strong> {{ selectedProject?.description }}</p>
-            <p><strong>Technologies:</strong> {{ selectedProject?.technologies?.join(', ') }}</p>
-            <a href="{{ selectedProject?.link }}" class="btn btn-primary" target="_blank">View Project</a>
-            <a *ngIf="selectedProject?.documentationLink" href="{{ selectedProject?.documentationLink }}" class="btn btn-secondary" target="_blank">View Documentation</a>
-            </div>
-        </div>
-        </div>
-    </div>  
   </div>
-  
+</section>
