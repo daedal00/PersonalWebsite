@@ -1,7 +1,7 @@
-@import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap.scss";
 
-$bootstrap-icons-font-path: "assets/fonts";
-@import "bootstrap-icons/font/bootstrap-icons";
+$bootstrap-icons-font-dir: "../node_modules/bootstrap-icons/font/fonts/";
+@import "bootstrap-icons/font/bootstrap-icons.scss";
 
 :root {
   --bg-color: #ffffff;
@@ -134,7 +134,7 @@ a {
   background: var(--link-color);
 }
 
-// Modal styles
+/* Modal styles */
 .modal-open {
   overflow: hidden;
 }
@@ -201,7 +201,7 @@ a {
   opacity: 0.5;
 }
 
-// Add these new styles for experience and projects components
+/* Styles for experience and projects components */
 .experience-item,
 .project-item {
   border: 1px solid var(--component-outline);
@@ -223,13 +223,17 @@ a {
   padding: 1rem;
 }
 
-// Add a subtle transition for smooth color changes
-* {
+/* Apply transitions to specific elements for smooth color changes */
+body,
+.card,
+.btn,
+.navbar,
+.footer {
   transition: background-color 0.3s ease, border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-// Remove any color transitions from text elements
+/* Remove transitions from text elements */
 h1,
 h2,
 h3,

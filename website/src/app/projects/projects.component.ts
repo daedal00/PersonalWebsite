@@ -6,9 +6,10 @@ interface Project {
   fullDescription: string[];
   technologies: string[];
   icon: string;
-  darkModeIcon?: string; // New property for dark mode specific icons
+  darkModeIcon?: string;
   projectLink?: string;
   repoLink?: string;
+  documentationLink?: string;
   expanded: boolean;
 }
 
@@ -50,6 +51,7 @@ export class ProjectsComponent {
       icon: 'bi-chat-square-text',
       projectLink: 'https://www.students.cs.ubc.ca/~samuelk2/project/login.php',
       repoLink: 'https://github.com/daedal00/FoodTalk',
+      documentationLink: 'assets/foodtalk_documentation.pdf',
       expanded: false,
     },
     {
@@ -85,5 +87,9 @@ export class ProjectsComponent {
 
   toggleProject(project: Project): void {
     project.expanded = !project.expanded;
+  }
+
+  openDocumentation(link: string): void {
+    window.open(link, '_blank');
   }
 }

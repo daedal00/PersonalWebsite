@@ -4,5 +4,5 @@ export interface Project {
   technologies: string[];
   imageUrl: string;
   link: string;
-  documentationLink?: string;  // Optional property
+  documentationLink?: string;
 }

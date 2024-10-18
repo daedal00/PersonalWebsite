@@ -18,7 +18,7 @@ export class ExperienceComponent {
   job: Job = {
     title: 'Software Engineer Intern',
     company: 'Savi Finance',
-    companyLink: 'https://savifinance.com',
+    companyLink: 'https://financesavi.com/',
     period: 'Jan. 2024 - Sep. 2024',
     responsibilities: [
       'Delivered an income and expense categorization system in just 7 days, contributing to a successful product release ahead of the scheduled launch date.',
