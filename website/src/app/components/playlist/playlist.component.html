@@ -1,0 +1,76 @@
+<div *ngIf="playlist" class="playlist-view">
+  <div class="playlist-header">
+    <div class="playlist-cover">
+      <img [src]="playlist.coverImage" alt="{{ playlist.name }}" />
+    </div>
+    <div class="playlist-info">
+      <div class="playlist-type">Playlist</div>
+      <h1 class="playlist-title">{{ playlist.name }}</h1>
+      <div class="playlist-description">{{ playlist.description }}</div>
+      <div class="playlist-stats">
+        <span>{{ playlist.items.length }} items</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="playlist-actions">
+    <button class="play-button">
+      <i class="bi bi-play-circle-fill"></i>
+    </button>
+  </div>
+
+  <div class="playlist-tracks">
+    <div class="tracks-header">
+      <div class="track-number">#</div>
+      <div class="track-title">TITLE</div>
+      <div class="track-album">TECHNOLOGIES</div>
+      <div class="track-duration">
+        <i class="bi bi-clock"></i>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div
+      *ngFor="let item of playlist.items; let i = index"
+      class="track-item"
+      (dblclick)="playItem(item, i)"
+      (click)="openContentDetail(item.id)"
+    >
+      <div class="track-number">
+        <span class="number">{{ i + 1 }}</span>
+        <span class="play-icon"><i class="bi bi-play-fill"></i></span>
+      </div>
+      <div class="track-title">
+        <div class="track-icon">
+          <i class="bi bi-file-earmark-code"></i>
+        </div>
+        <div class="track-info">
+          <div class="name">{{ item.title }}</div>
+          <div class="artist">{{ item.subtitle }}</div>
+        </div>
+      </div>
+      <div class="track-album">
+        <div class="tech-icons" *ngIf="hasTechnologies(item)">
+          <div
+            class="tech-icon"
+            *ngFor="let tech of getTopTechnologies(item, 3)"
+          >
+            <i [class]="tech.icon" title="{{ tech.name }}"></i>
+          </div>
+        </div>
+      </div>
+      <div class="track-duration">
+        <span *ngIf="item.details && item.details['Duration']">{{
+          item.details["Duration"]
+        }}</span>
+        <span
+          *ngIf="!(item.details && item.details['Duration']) && item.duration"
+          >{{ item.duration }}</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!playlist" class="playlist-loading">Loading playlist...</div>
+</div>

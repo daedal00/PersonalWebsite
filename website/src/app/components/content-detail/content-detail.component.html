@@ -1,0 +1,59 @@
+<div class="detail-container" *ngIf="content">
+  <div class="detail-header">
+    <button class="close-btn" (click)="closeDetail()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <div class="detail-content">
+    <div class="content-info">
+      <h2 class="content-title">{{ content.title }}</h2>
+      <div class="content-subtitle">{{ content.subtitle }}</div>
+      <p class="content-description">{{ content.description }}</p>
+
+      <div class="content-metadata">
+        <!-- Only display Duration and Date from details object if they exist -->
+        <div
+          *ngFor="let detail of content.details | keyvalue"
+          class="metadata-item"
+        >
+          <div class="label">{{ detail.key }}</div>
+
+          <!-- Display technology icons if the key is 'Technologies' -->
+          <div
+            class="value"
+            *ngIf="detail.key !== 'Technologies'; else techIcons"
+          >
+            {{ detail.value }}
+          </div>
+
+          <ng-template #techIcons>
+            <div class="tech-icons" *ngIf="isArray(detail.value)">
+              <div class="tech-item" *ngFor="let tech of detail.value">
+                <i [class]="tech.icon"></i>
+                <span>{{ tech.name }}</span>
+              </div>
+            </div>
+            <div class="value" *ngIf="!isArray(detail.value)">
+              {{ detail.value }}
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div *ngIf="content.link" class="content-link">
+        <button class="link-btn" (click)="openExternalLink()">
+          <i class="bi bi-link-45deg"></i>
+          <span>Open Link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="empty-detail" *ngIf="!content">
+  <div class="empty-message">
+    <i class="bi bi-music-note-list"></i>
+    <p>Select an item to view details</p>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+// Colors
+$background-color: #121212;
+$sidebar-bg: #000000;
+$card-bg: #181818;
+$active-bg: #282828;
+$text-color: #ffffff;
+$text-secondary: #b3b3b3;
+$accent-color: #1db954;
+
+// Gradients
+$purple-gradient: linear-gradient(135deg, #450af5, #c4efd9);
+
+// Fonts
+$default-font: "Circular Std", Helvetica, Arial, sans-serif;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Animation
+$transition-fast: 0.1s ease;
+$transition-default: 0.2s ease;
+$transition-slow: 0.3s ease;

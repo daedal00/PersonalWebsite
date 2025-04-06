@@ -1,0 +1,117 @@
+<div class="spotify-container" [class.detail-open]="sidebarOpen">
+  <div class="main-content" (click)="closeDetailSidebar($event)">
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="content-area">
+      <div class="top-bar">
+        <div class="navigation-controls">
+          <button
+            class="nav-btn"
+            [disabled]="!canNavigateBack()"
+            (click)="navigateBack()"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button
+            class="nav-btn"
+            [disabled]="!canNavigateForward()"
+            (click)="navigateForward()"
+          >
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="search-container">
+          <div class="search-bar">
+            <span class="search-icon">
+              <i class="bi bi-search"></i>
+            </span>
+            <input
+              type="text"
+              placeholder="What do you want to search for?"
+              [(ngModel)]="searchQuery"
+              (focus)="onSearchFocus()"
+              (keyup)="onSearchInput()"
+            />
+          </div>
+        </div>
+
+        <div class="user-menu">
+          <div class="user-avatar" (click)="openAboutMe()" title="About Me">
+            <i class="bi bi-person-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-results" *ngIf="isSearchActive">
+        <div class="search-results-container" *ngIf="!searchQuery.trim()">
+          <h2>Browse Featured Playlists</h2>
+          <div class="featured-playlists">
+            <div
+              *ngFor="let playlist of playlists"
+              class="featured-playlist"
+              (click)="navigateToPlaylist(playlist.id)"
+            >
+              <div class="playlist-image">
+                <img [src]="playlist.coverImage" alt="{{ playlist.name }}" />
+              </div>
+              <div class="playlist-name">{{ playlist.name }}</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="search-results-container"
+          *ngIf="searchQuery.trim() && searchResults.length > 0"
+        >
+          <h2>Showing results for "{{ searchQuery }}"</h2>
+          <div class="search-results-list">
+            <div
+              *ngFor="let result of searchResults"
+              class="search-result-item"
+              (click)="selectSearchResult(result)"
+            >
+              <div class="result-image" *ngIf="result.type === 'playlist'">
+                <img
+                  [src]="result.image"
+                  alt="{{ result.title || result.name }}"
+                />
+              </div>
+              <div class="result-icon" *ngIf="result.type === 'content'">
+                <i class="bi bi-file-earmark-code"></i>
+              </div>
+              <div class="result-info">
+                <div class="result-title">
+                  {{ result.title || result.name }}
+                </div>
+                <div class="result-subtitle">
+                  {{ result.subtitle || result.description }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="search-results-container no-results"
+          *ngIf="searchQuery.trim() && searchResults.length === 0"
+        >
+          <h2>No results found for "{{ searchQuery }}"</h2>
+          <p>Try searching for something else</p>
+        </div>
+      </div>
+
+      <div class="main-view" [hidden]="isSearchActive">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-detail" [class.open]="sidebarOpen">
+    <app-content-detail></app-content-detail>
+  </div>
+
+  <div class="player-container">
+    <app-player></app-player>
+  </div>
+</div>

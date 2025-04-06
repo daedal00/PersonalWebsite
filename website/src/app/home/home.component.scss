@@ -1,0 +1,132 @@
+$spotify-black: #121212;
+$spotify-dark-gray: #181818;
+$spotify-medium-gray: #282828;
+$spotify-light-gray: #b3b3b3;
+$spotify-white: #ffffff;
+$spotify-green: #1db954;
+
+.home-container {
+  padding: 24px 32px;
+}
+
+.greeting-section {
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: $spotify-white;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $spotify-light-gray;
+  }
+}
+
+.playlists-section {
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: $spotify-white;
+    margin-bottom: 16px;
+  }
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.playlist-card {
+  background-color: $spotify-medium-gray;
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($spotify-medium-gray, 0.7);
+
+    .play-overlay {
+      opacity: 1;
+    }
+  }
+
+  .playlist-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding: 8px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .play-button {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: $spotify-green;
+        border: none;
+        color: $spotify-black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transform: translateY(8px);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(0) scale(1.05);
+        }
+
+        i {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .playlist-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: $spotify-white;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .playlist-description {
+    font-size: 14px;
+    color: $spotify-light-gray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}

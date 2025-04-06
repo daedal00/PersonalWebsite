@@ -1,0 +1,251 @@
+@import "../../../styles/variables";
+
+$spotify-black: #121212;
+$spotify-dark-gray: #181818;
+$spotify-medium-gray: #282828;
+$spotify-light-gray: #b3b3b3;
+$spotify-white: #ffffff;
+$spotify-green: #1db954;
+
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.detail-container {
+  height: 100%;
+  background-color: $card-bg;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.detail-header {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: $text-secondary;
+    font-size: 20px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $text-color;
+    }
+  }
+}
+
+.detail-content {
+  padding: 0 32px 32px;
+  overflow-x: hidden;
+  width: 100%;
+
+  .content-image {
+    margin-bottom: 24px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content-info {
+    .content-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: $spotify-white;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .content-subtitle {
+      font-size: 18px;
+      color: $spotify-green;
+      margin-bottom: 20px;
+      font-weight: 500;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.4;
+      padding: 8px 0;
+      max-width: 100%;
+      display: inline-block;
+    }
+
+    .content-description {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba($spotify-light-gray, 0.2);
+    }
+
+    .content-metadata {
+      margin-bottom: 24px;
+      overflow: visible;
+
+      .metadata-item {
+        margin-bottom: 20px;
+        animation: fadeIn 0.4s ease-in-out forwards;
+        opacity: 0;
+        border-bottom: 1px solid rgba($spotify-light-gray, 0.1);
+        padding-bottom: 20px;
+
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.05}s;
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+
+        .label {
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: $spotify-green;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .value {
+          font-size: 15px;
+          line-height: 1.6;
+          background-color: rgba($spotify-medium-gray, 0.4);
+          padding: 10px 14px;
+          border-radius: 6px;
+          border-left: 3px solid $spotify-green;
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
+
+        .tech-icons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 8px;
+          max-height: 280px;
+          overflow-y: auto;
+          padding-right: 5px;
+
+          .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba($spotify-medium-gray, 0.4);
+            border-radius: 8px;
+            padding: 14px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            min-width: 70px;
+            margin-bottom: 10px;
+
+            &:hover {
+              transform: translateY(-4px);
+              background-color: rgba($spotify-green, 0.1);
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            i {
+              font-size: 32px;
+              color: $spotify-green;
+              margin-bottom: 10px;
+            }
+
+            span {
+              font-size: 12px;
+              font-weight: 500;
+              text-align: center;
+              max-width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+
+    .content-link {
+      .link-btn {
+        display: inline-flex;
+        align-items: center;
+        background-color: $accent-color;
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        i {
+          margin-right: 8px;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          background-color: lighten($accent-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+.empty-detail {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  background-color: $card-bg;
+
+  .empty-message {
+    text-align: center;
+
+    i {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
