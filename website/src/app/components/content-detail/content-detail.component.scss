@@ -249,3 +249,114 @@ $spotify-green: #1db954;
     transform: translateY(0);
   }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .detail-container {
+    padding: 24px 16px;
+
+    .close-button {
+      top: 16px;
+      right: 16px;
+
+      i {
+        font-size: 24px;
+      }
+    }
+
+    .content-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .content-icon {
+        width: 120px;
+        height: 120px;
+        margin-right: 0;
+        margin-bottom: 16px;
+
+        i {
+          font-size: 54px;
+        }
+      }
+
+      .content-info {
+        .content-title {
+          font-size: 24px;
+          line-height: 32px;
+        }
+
+        .content-subtitle,
+        .content-description {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .content-actions {
+      gap: 10px;
+
+      .link-button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+
+    .content-details {
+      margin-top: 24px;
+
+      .detail-section {
+        margin-bottom: 16px;
+
+        .section-title {
+          font-size: 18px;
+        }
+
+        .section-content {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+
+      .tech-icons {
+        gap: 10px;
+        flex-wrap: wrap;
+
+        .tech-icon {
+          i {
+            font-size: 24px;
+          }
+
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .detail-container {
+    padding: 20px 12px 80px; /* Extra padding at bottom to account for player */
+
+    .content-header {
+      .content-icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .content-info {
+        .content-title {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .content-actions {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

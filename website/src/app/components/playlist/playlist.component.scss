@@ -247,3 +247,137 @@ $spotify-green: #1db954;
   color: $spotify-light-gray;
   font-size: 16px;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .playlist-view {
+    padding: 24px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .playlist-header {
+    flex-direction: column;
+    padding: 0 16px 16px;
+
+    .playlist-cover {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 16px;
+    }
+
+    .playlist-info {
+      align-items: center;
+      text-align: center;
+
+      .playlist-title {
+        font-size: 42px;
+        line-height: 48px;
+        margin-bottom: 8px;
+      }
+
+      .playlist-description {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .playlist-actions {
+    padding: 16px;
+  }
+
+  .playlist-tracks {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    .tracks-header {
+      grid-template-columns: 40px 3fr 2fr;
+      padding: 0 16px;
+
+      .track-duration {
+        display: none; /* Hide duration on mobile */
+      }
+    }
+
+    .track-item {
+      grid-template-columns: 40px 3fr 2fr;
+      padding: 0 16px;
+      height: 60px;
+
+      .track-duration {
+        display: none; /* Hide duration on mobile */
+      }
+
+      .track-title {
+        .track-icon {
+          width: 32px;
+          height: 32px;
+          margin-right: 8px;
+
+          i {
+            font-size: 16px;
+          }
+        }
+
+        .track-info {
+          .name {
+            font-size: 14px;
+          }
+
+          .artist {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .track-album {
+        .tech-icons {
+          gap: 8px;
+
+          .tech-icon {
+            i {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .playlist-view {
+    padding: 16px 0;
+  }
+
+  .playlist-header {
+    .playlist-info {
+      .playlist-title {
+        font-size: 32px;
+        line-height: 36px;
+      }
+    }
+  }
+
+  .playlist-tracks {
+    .tracks-header {
+      grid-template-columns: 30px 1fr;
+
+      div:nth-child(3) {
+        display: none; /* Hide album column on small devices */
+      }
+    }
+
+    .track-item {
+      grid-template-columns: 30px 1fr;
+
+      .track-album {
+        display: none; /* Hide album column on small devices */
+      }
+    }
+  }
+}

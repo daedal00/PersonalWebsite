@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +21,8 @@ import {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
+  @Output() menuItemClicked = new EventEmitter<void>();
+
   faHome = faHome;
   faSearch = faSearch;
   faUser = faUser;
@@ -52,10 +54,12 @@ export class SidebarComponent implements OnInit {
 
   navigateToHome(): void {
     this.router.navigate(['/']);
+    this.menuItemClicked.emit();
   }
 
   navigateToPlaylist(playlistId: string): void {
     this.router.navigate(['/playlist', playlistId]);
+    this.menuItemClicked.emit();
   }
 
   isPlaylistActive(playlistId: string): boolean {
@@ -81,6 +85,7 @@ export class SidebarComponent implements OnInit {
 
   openAboutMe(): void {
     this.contentService.selectContent('about-me');
+    this.menuItemClicked.emit();
   }
 
   search(): void {
@@ -101,9 +106,11 @@ export class SidebarComponent implements OnInit {
       this.contentService.selectContent(result.id);
     }
     this.clearSearch();
+    this.menuItemClicked.emit();
   }
 
   openExternalLink(type: 'spotify' | 'github' | 'linkedin'): void {
     window.open(this.socialLinks[type], '_blank');
+    this.menuItemClicked.emit();
   }
 }

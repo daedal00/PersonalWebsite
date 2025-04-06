@@ -121,11 +121,18 @@ export class SpotifyLayoutComponent implements OnInit {
       }
     }
 
-    // Also close mobile sidebar if clicked outside
+    // Also close mobile sidebar if clicked outside the sidebar and not on the toggle button
     const sidebarElement = document.querySelector('.sidebar') as HTMLElement;
-    if (sidebarElement && !sidebarElement.contains(event.target as Node)) {
+    const isMobileToggleButton = (event.target as HTMLElement).closest(
+      '.mobile-menu-toggle'
+    );
+
+    if (
+      !isMobileToggleButton &&
+      sidebarElement &&
+      !sidebarElement.contains(event.target as Node)
+    ) {
       this.isMobileSidebarOpen = false;
-      sidebarElement.classList.remove('mobile-open');
     }
   }
 
@@ -165,14 +172,16 @@ export class SpotifyLayoutComponent implements OnInit {
   }
 
   toggleMobileSidebar() {
+    console.log('Before toggle:', this.isMobileSidebarOpen);
     this.isMobileSidebarOpen = !this.isMobileSidebarOpen;
-    const sidebarElement = document.querySelector('.sidebar') as HTMLElement;
-    if (sidebarElement) {
-      if (this.isMobileSidebarOpen) {
-        sidebarElement.classList.add('mobile-open');
-      } else {
-        sidebarElement.classList.remove('mobile-open');
-      }
-    }
+    console.log('After toggle:', this.isMobileSidebarOpen);
+  }
+
+  closeMobileSidebar() {
+    this.isMobileSidebarOpen = false;
+  }
+
+  isMobileView(): boolean {
+    return window.innerWidth <= 768;
   }
 }
