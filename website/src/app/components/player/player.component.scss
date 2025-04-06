@@ -499,3 +499,102 @@ $spotify-green: #1db954;
     opacity: 1;
   }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .player-wrapper {
+    padding: 8px 12px;
+  }
+
+  .now-playing {
+    flex: 0 0 30%;
+
+    .track-info {
+      .track-image {
+        width: 40px;
+        height: 40px;
+      }
+
+      .track-details {
+        margin-left: 8px;
+
+        .track-name {
+          font-size: 12px;
+        }
+
+        .track-artist {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  .player-controls {
+    flex: 0 0 40%;
+
+    .control-buttons {
+      .control-btn {
+        &.primary {
+          width: 36px;
+          height: 36px;
+        }
+
+        &.secondary {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .progress-container {
+      .time-info {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .volume-controls {
+    flex: 0 0 30%;
+
+    .volume-bar {
+      width: 70px;
+    }
+  }
+
+  .music-upload-dialog {
+    .dialog-content {
+      width: 90%;
+      max-width: none;
+      max-height: 80vh;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .player-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "now-playing"
+      "player-controls"
+      "volume-controls";
+    height: auto;
+    min-height: 70px;
+  }
+
+  .now-playing {
+    padding: 4px 0;
+  }
+
+  .player-controls {
+    padding: 4px 0;
+
+    .progress-container {
+      .time-info {
+        display: none;
+      }
+    }
+  }
+
+  .volume-controls {
+    display: none;
+  }
+}

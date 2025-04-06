@@ -34,6 +34,8 @@ export class SpotifyLayoutComponent implements OnInit {
   isSearchActive: boolean = false;
   playlists: Playlist[] = [];
 
+  isMobileSidebarOpen = false;
+
   constructor(
     private contentService: ContentService,
     private router: Router,
@@ -118,6 +120,13 @@ export class SpotifyLayoutComponent implements OnInit {
         this.contentService.toggleSidebar(false);
       }
     }
+
+    // Also close mobile sidebar if clicked outside
+    const sidebarElement = document.querySelector('.sidebar') as HTMLElement;
+    if (sidebarElement && !sidebarElement.contains(event.target as Node)) {
+      this.isMobileSidebarOpen = false;
+      sidebarElement.classList.remove('mobile-open');
+    }
   }
 
   openAboutMe(): void {
@@ -153,5 +162,17 @@ export class SpotifyLayoutComponent implements OnInit {
   navigateToPlaylist(playlistId: string): void {
     this.router.navigate(['/playlist', playlistId]);
     this.isSearchActive = false;
+  }
+
+  toggleMobileSidebar() {
+    this.isMobileSidebarOpen = !this.isMobileSidebarOpen;
+    const sidebarElement = document.querySelector('.sidebar') as HTMLElement;
+    if (sidebarElement) {
+      if (this.isMobileSidebarOpen) {
+        sidebarElement.classList.add('mobile-open');
+      } else {
+        sidebarElement.classList.remove('mobile-open');
+      }
+    }
   }
 }

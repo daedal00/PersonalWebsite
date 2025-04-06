@@ -210,3 +210,47 @@ $spotify-green: #1db954;
     }
   }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sidebar-container {
+    padding: 12px;
+  }
+
+  .logo {
+    font-size: 18px;
+    padding: 8px 0;
+  }
+
+  .main-menu,
+  .library-section {
+    margin-bottom: 12px;
+  }
+
+  .menu-item,
+  .section-header {
+    padding: 8px 12px;
+  }
+
+  .playlist-container {
+    max-height: 150px;
+  }
+
+  .playlist-item {
+    padding: 8px;
+  }
+
+  .social-links {
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-container {
+    padding: 8px;
+  }
+
+  .playlist-info .playlist-type {
+    display: none;
+  }
+}
