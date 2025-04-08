@@ -46,13 +46,14 @@ $spotify-green: #1db954;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.2s ease;
     color: $spotify-light-gray;
     margin-bottom: 4px;
 
     &:hover,
     &.active {
       color: $spotify-white;
+      background-color: rgba($spotify-white, 0.1);
     }
 
     i {
@@ -101,11 +102,13 @@ $spotify-green: #1db954;
       padding: 8px 0;
       cursor: pointer;
       border-radius: 4px;
-      transition: background-color 0.2s ease;
+      transition: all 0.2s ease;
+      padding-left: 8px;
+      padding-right: 8px;
 
       &:hover,
       &.active {
-        background-color: rgba($spotify-medium-gray, 0.7);
+        background-color: rgba($spotify-white, 0.1);
       }
 
       .playlist-icon {

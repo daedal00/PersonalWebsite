@@ -381,3 +381,156 @@ $spotify-green: #1db954;
     }
   }
 }
+
+/* Easter Egg Modal Styles */
+.easter-egg-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: $spotify-dark-gray;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba($spotify-light-gray, 0.1);
+
+  h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: $spotify-white;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    color: $spotify-light-gray;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $spotify-white;
+    }
+  }
+}
+
+.modal-body {
+  padding: 20px;
+  color: $spotify-light-gray;
+
+  p {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .profile-preview {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: rgba($spotify-black, 0.4);
+    border-radius: 4px;
+    margin-bottom: 16px;
+
+    .profile-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: $spotify-medium-gray;
+      margin-right: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        font-size: 28px;
+        color: $spotify-light-gray;
+      }
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+
+      .profile-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: $spotify-white;
+        margin-bottom: 4px;
+      }
+
+      .profile-subtitle {
+        font-size: 14px;
+        color: $spotify-light-gray;
+      }
+    }
+  }
+}
+
+.modal-actions {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  button {
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .cancel-button {
+    background-color: transparent;
+    color: $spotify-white;
+    border: 1px solid rgba($spotify-light-gray, 0.3);
+
+    &:hover {
+      border-color: $spotify-white;
+      transform: scale(1.05);
+    }
+  }
+
+  .confirm-button {
+    background-color: $spotify-green;
+    color: $spotify-black;
+
+    &:hover {
+      background-color: lighten($spotify-green, 5%);
+      transform: scale(1.05);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

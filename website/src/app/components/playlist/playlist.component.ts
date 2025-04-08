@@ -16,6 +16,8 @@ import {
 })
 export class PlaylistComponent implements OnInit {
   playlist: Playlist | null = null;
+  private clickCount = 0;
+  showEasterEggModal = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -53,6 +55,24 @@ export class PlaylistComponent implements OnInit {
     // If we had actual music tracks, we would load them here
     // For now, just trigger the detail view
     this.openContentDetail(content.id);
+  }
+
+  onPlayButtonClick(): void {
+    this.clickCount++;
+
+    if (this.clickCount === 7) {
+      this.clickCount = 0;
+      this.showEasterEggModal = true;
+    }
+  }
+
+  closeEasterEggModal(): void {
+    this.showEasterEggModal = false;
+  }
+
+  visitEricChuPage(): void {
+    window.open('https://www.ericchu.one/', '_blank');
+    this.closeEasterEggModal();
   }
 
   hasTechnologies(item: Content): boolean {

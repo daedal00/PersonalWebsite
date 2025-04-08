@@ -14,7 +14,7 @@
   </div>
 
   <div class="playlist-actions">
-    <button class="play-button">
+    <button class="play-button" (click)="onPlayButtonClick()" title="Play">
       <i class="bi bi-play-circle-fill"></i>
     </button>
   </div>
@@ -73,4 +73,42 @@
   </div>
 
   <div *ngIf="!playlist" class="playlist-loading">Loading playlist...</div>
+</div>
+
+<!-- Custom Easter Egg Modal -->
+<div class="easter-egg-modal" *ngIf="showEasterEggModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Hidden Hobby: Getting beat (in sports) by Eric Chu</h3>
+      <button
+        class="close-button"
+        (click)="closeEasterEggModal()"
+        title="Close"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Would you like to visit Eric Chu's portfolio?</p>
+      <div class="profile-preview">
+        <div class="profile-image">
+          <i class="bi bi-person-fill"></i>
+        </div>
+        <div class="profile-info">
+          <span class="profile-name">Eric Chu</span>
+          <span class="profile-subtitle"
+            >UBC Electrical Engineering Student</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="cancel-button" (click)="closeEasterEggModal()">
+        Not Now
+      </button>
+      <button class="confirm-button" (click)="visitEricChuPage()">
+        Visit Page
+      </button>
+    </div>
+  </div>
 </div>

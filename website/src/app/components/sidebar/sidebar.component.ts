@@ -40,6 +40,7 @@ export class SidebarComponent implements OnInit {
     spotify: 'https://open.spotify.com/user/samuelkim019',
     github: 'https://github.com/daedal00',
     linkedin: 'https://www.linkedin.com/in/samuelkim019',
+    email: 'mailto:samuelk2@student.ubc.ca',
   };
 
   constructor(
@@ -109,7 +110,7 @@ export class SidebarComponent implements OnInit {
     this.menuItemClicked.emit();
   }
 
-  openExternalLink(type: 'spotify' | 'github' | 'linkedin'): void {
+  openExternalLink(type: 'spotify' | 'github' | 'linkedin' | 'email'): void {
     window.open(this.socialLinks[type], '_blank');
     this.menuItemClicked.emit();
   }
