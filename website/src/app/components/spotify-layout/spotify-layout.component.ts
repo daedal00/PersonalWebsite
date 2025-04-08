@@ -53,11 +53,6 @@ export class SpotifyLayoutComponent implements OnInit {
     // Listen to all navigation events to reset search and mobile states
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // Reset search state
-        this.isSearchActive = false;
-        this.searchQuery = '';
-        this.searchResults = [];
-
         // Reset mobile sidebar state
         this.isMobileSidebarOpen = false;
 
@@ -89,15 +84,20 @@ export class SpotifyLayoutComponent implements OnInit {
 
   navigateBack(): void {
     if (this.canNavigateBack()) {
+      // Always close search when navigating
+      this.closeSearch();
+
       this.currentHistoryIndex--;
-      this.router.navigateByUrl(
-        this.navigationHistory[this.currentHistoryIndex]
-      );
+      const targetUrl = this.navigationHistory[this.currentHistoryIndex];
+      this.router.navigateByUrl(targetUrl);
     }
   }
 
   navigateForward(): void {
     if (this.canNavigateForward()) {
+      // Always close search when navigating
+      this.closeSearch();
+
       this.currentHistoryIndex++;
       this.router.navigateByUrl(
         this.navigationHistory[this.currentHistoryIndex]
@@ -153,6 +153,12 @@ export class SpotifyLayoutComponent implements OnInit {
     this.isSearchActive = true;
   }
 
+  closeSearch(): void {
+    this.isSearchActive = false;
+    this.searchQuery = '';
+    this.searchResults = [];
+  }
+
   onSearchInput(): void {
     if (this.searchQuery.trim()) {
       this.searchResults = this.contentService.searchContent(this.searchQuery);
@@ -187,6 +193,11 @@ export class SpotifyLayoutComponent implements OnInit {
 
   closeMobileSidebar() {
     this.isMobileSidebarOpen = false;
+  }
+
+  closeMobileSidebarAndSearch() {
+    this.isMobileSidebarOpen = false;
+    this.closeSearch();
   }
 
   isMobileView(): boolean {

@@ -195,9 +195,13 @@ export class MusicService {
     );
 
     if (currentIndex < activePlaylist.length - 1) {
+      // Not the last track, play the next one
       this.play(activePlaylist[currentIndex + 1]);
     } else if (this.isLoopEnabledSubject.value) {
       // If looping and at the end, go back to first track
+      this.play(activePlaylist[0]);
+    } else if (activePlaylist.length > 0) {
+      // If not looping but we have tracks, start from the beginning
       this.play(activePlaylist[0]);
     }
   }

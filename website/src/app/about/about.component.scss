@@ -74,6 +74,17 @@ ul {
 
 .about-content {
   animation: fadeIn 0.8s ease-in-out;
+
+  a {
+    color: #1db954;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 @keyframes fadeIn {
@@ -84,5 +95,62 @@ ul {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.resume-link {
+  margin: 20px 0;
+  display: block;
+
+  a.btn-success {
+    background-color: #1db954; // Spotify green
+    border-color: #1db954;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin: 10px 0;
+    color: white; // Ensure text is white
+
+    &:hover {
+      background-color: #1ed760; // Lighter Spotify green
+    }
+
+    i {
+      font-size: 18px;
+      margin-right: 8px;
+    }
+  }
+}
+
+.interests-section {
+  background-color: rgba(29, 185, 84, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-left: 4px solid #1db954;
+  position: relative;
+
+  h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: rgba(255, 255, 255, 0.9);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
