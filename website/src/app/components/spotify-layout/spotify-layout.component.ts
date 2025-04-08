@@ -50,10 +50,17 @@ export class SpotifyLayoutComponent implements OnInit {
     // Load playlists for the search results
     this.playlists = this.contentService.getPlaylists();
 
-    // Simplified navigation tracking
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
+    // Listen to all navigation events to reset search and mobile states
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Reset search state
+        this.isSearchActive = false;
+        this.searchQuery = '';
+        this.searchResults = [];
+
+        // Reset mobile sidebar state
+        this.isMobileSidebarOpen = false;
+
         // Only add to history if it's a new route
         if (
           this.currentHistoryIndex === -1 ||
@@ -72,7 +79,8 @@ export class SpotifyLayoutComponent implements OnInit {
           this.navigationHistory.push(event.urlAfterRedirects);
           this.currentHistoryIndex = this.navigationHistory.length - 1;
         }
-      });
+      }
+    });
   }
 
   toggleSidebar(): void {

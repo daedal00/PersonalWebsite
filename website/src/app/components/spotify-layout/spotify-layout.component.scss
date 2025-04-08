@@ -208,6 +208,7 @@ $spotify-green: #1db954;
       overflow: hidden;
       transition: background-color 0.3s;
       cursor: pointer;
+      height: 100%;
 
       &:hover {
         background-color: #282828;
@@ -239,23 +240,36 @@ $spotify-green: #1db954;
       }
 
       .result-info {
-        padding: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
 
         .result-title {
           color: #fff;
           font-weight: 600;
-          margin-bottom: 4px;
+          margin-bottom: 8px;
+          font-size: 16px;
+          line-height: 1.4;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-          white-space: nowrap;
+          white-space: normal;
         }
 
         .result-subtitle {
           color: #b3b3b3;
           font-size: 14px;
+          line-height: 1.4;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-          white-space: nowrap;
+          white-space: normal;
+          margin-bottom: 4px;
         }
       }
     }
@@ -277,12 +291,84 @@ $spotify-green: #1db954;
 }
 
 .main-view {
-  padding: 12px 16px; /* Reduce padding on mobile */
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
   width: 100%;
   box-sizing: border-box;
   max-width: 100%;
   overflow-y: auto;
   height: calc(100% - 64px);
+
+  .playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    width: 100%;
+    padding-bottom: 24px;
+
+    .playlist-item {
+      background: $spotify-dark-gray;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background: lighten($spotify-dark-gray, 5%);
+      }
+
+      .playlist-image {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 16px;
+        flex-shrink: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .playlist-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .playlist-title {
+          font-size: 16px;
+          font-weight: 600;
+          color: $spotify-white;
+          margin-bottom: 8px;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: normal;
+          line-height: 1.2;
+        }
+
+        .playlist-tech {
+          font-size: 13px;
+          color: $spotify-light-gray;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: normal;
+          line-height: 1.4;
+          height: 36px;
+        }
+      }
+    }
+  }
 }
 
 .content-detail {
@@ -352,14 +438,60 @@ $spotify-green: #1db954;
 @media (max-width: 768px) {
   .spotify-container {
     grid-template-rows: 1fr 70px;
+    height: 100vh;
+    overflow: hidden;
 
     &.detail-open {
-      grid-template-columns: 1fr 100%; /* Full width sidebar on mobile */
+      grid-template-columns: 1fr 100%;
     }
   }
 
   .main-content {
     flex-direction: column;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+  }
+
+  .content-area {
+    height: 100%;
+    padding-bottom: 0;
+  }
+
+  .main-view {
+    padding: 16px;
+
+    .playlist-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+
+      .playlist-item {
+        padding: 12px;
+
+        .playlist-content {
+          .playlist-title {
+            font-size: 14px;
+            line-height: 1.2;
+          }
+
+          .playlist-tech {
+            font-size: 12px;
+            line-height: 1.4;
+            height: 33.6px;
+          }
+        }
+      }
+    }
+  }
+
+  .player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 1000;
+    background-color: $spotify-medium-gray;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .sidebar {
@@ -381,14 +513,6 @@ $spotify-green: #1db954;
     &.mobile-open {
       transform: translateY(0);
     }
-  }
-
-  .content-area {
-    padding-bottom: 70px;
-  }
-
-  .main-view {
-    padding: 12px 16px; /* Reduce padding on mobile */
   }
 
   .top-bar {
@@ -418,18 +542,83 @@ $spotify-green: #1db954;
     padding: 12px 16px;
 
     .featured-playlists {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 24px;
+      padding-bottom: 16px;
+
+      .featured-playlist {
+        padding: 12px;
+        margin-bottom: 8px;
+
+        .playlist-name {
+          margin-top: 12px;
+          min-height: 40px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
     }
 
     .search-results-list {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px;
-    }
-  }
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 32px;
+      padding-bottom: 16px;
 
-  .player-container {
-    height: 70px;
+      .search-result-item {
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+
+        .result-icon {
+          height: 160px;
+          min-height: 160px;
+        }
+
+        .result-image {
+          height: 160px;
+          min-height: 160px;
+        }
+
+        .result-info {
+          padding: 12px;
+          height: 120px;
+          min-height: 120px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          overflow: hidden;
+
+          .result-title {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            font-weight: 600;
+            height: 40px;
+            min-height: 40px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+
+          .result-subtitle {
+            font-size: 12px;
+            line-height: 1.4;
+            height: 72px;
+            min-height: 72px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: $spotify-light-gray;
+          }
+        }
+      }
+    }
   }
 
   .mobile-menu-toggle {
@@ -439,6 +628,14 @@ $spotify-green: #1db954;
 
 /* Small Mobile Devices */
 @media (max-width: 480px) {
+  .spotify-container {
+    grid-template-rows: 1fr 60px;
+  }
+
+  .player-container {
+    height: 60px;
+  }
+
   .top-bar {
     .navigation-controls {
       display: none;
@@ -452,12 +649,56 @@ $spotify-green: #1db954;
 
   .search-results {
     .featured-playlists {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
     }
 
     .search-results-list {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 24px;
+
+      .search-result-item {
+        height: 260px;
+
+        .result-icon {
+          height: 140px;
+          min-height: 140px;
+        }
+
+        .result-image {
+          height: 140px;
+          min-height: 140px;
+        }
+
+        .result-info {
+          height: 120px;
+          min-height: 120px;
+        }
+      }
+    }
+  }
+
+  .main-view {
+    padding: 12px;
+
+    .playlist-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+
+      .playlist-item {
+        padding: 10px;
+
+        .playlist-content {
+          .playlist-title {
+            font-size: 13px;
+          }
+
+          .playlist-tech {
+            font-size: 11px;
+            height: 30.8px;
+          }
+        }
+      }
     }
   }
 }
