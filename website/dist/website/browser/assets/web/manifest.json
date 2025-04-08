@@ -1,0 +1,21 @@
+{
+  "name": "Samuel Kim - Portfolio",
+  "short_name": "SK Portfolio",
+  "description": "Samuel Kim's portfolio website with a Spotify-inspired theme",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#1db954",
+  "icons": [
+    {
+      "src": "icons8-spotify-ios-17-filled-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons8-spotify-ios-17-filled-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

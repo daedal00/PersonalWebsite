@@ -264,7 +264,7 @@ export class ContentService {
           {
             id: 'project5',
             title: 'Where2Eat',
-            subtitle: 'TypeScript, React, Express, Socket.io',
+            subtitle: 'TypeScript, React, Express',
             description:
               'A real-time collaborative voting platform that streamlines group decision-making for restaurant choices in Vancouver and the Lower Mainland.',
             imageUrl: 'assets/images/default-item.jpg',
@@ -274,7 +274,7 @@ export class ContentService {
               Role: 'Full-stack Developer',
               Demo: 'Live application available online',
               'Technical Achievements':
-                'Implemented real-time synchronization with Socket.io, built responsive UI with React hooks, developed secure invite code system',
+                'Implemented real-time synchronization, built responsive UI with React hooks, developed secure invite code system',
               'Key Features':
                 'Real-time voting system, invite code generation, user-based voting, location-based restaurant suggestions',
               Technologies: [
@@ -282,7 +282,6 @@ export class ContentService {
                 { name: 'React', icon: 'devicon-react-original' },
                 { name: 'Express', icon: 'devicon-express-original' },
                 { name: 'Node.js', icon: 'devicon-nodejs-plain' },
-                { name: 'Socket.io', icon: 'devicon-socketio-original' },
               ],
               'Problem Solved':
                 'Eliminated decision paralysis for groups choosing dining locations by providing a structured, real-time voting system',
@@ -298,7 +297,7 @@ export class ContentService {
             id: 'project6',
             title: 'RouteBite',
             subtitle:
-              'TypeScript, Express, Google Maps API, Yelp API, MongoDB, React',
+              'TypeScript, Express, Google Maps + Yelp API, MongoDB, React',
             description:
               'An innovative travel companion app that intelligently recommends quality restaurants along user-specified routes, enhancing the journey experience.',
             imageUrl: 'assets/images/default-item.jpg',
@@ -309,7 +308,7 @@ export class ContentService {
               'Technical Challenges':
                 'Integrated complex geospatial calculations with Google Maps API to determine restaurant proximity to routes, optimized API calls to minimize latency and costs',
               'Key Features':
-                'Route-based restaurant recommendations, intelligent filtering based on ratings and price, customizable search radius, favorite locations saving',
+                'Route-based restaurant recommendations, intelligent filtering based on ratings and price, customizable search radius',
               Technologies: [
                 { name: 'TypeScript', icon: 'devicon-typescript-plain' },
                 { name: 'React', icon: 'devicon-react-original' },
@@ -319,7 +318,7 @@ export class ContentService {
               ],
               APIs: 'Google Maps API for route calculation, Yelp API for restaurant data',
               'Development Process':
-                'Agile methodology with rapid one-week development cycle, daily standups, and continuous integration',
+                'Agile methodology with rapid one-week development cycle and continuous integration',
               'Market Value':
                 'Addresses a common pain point for travelers who want quality dining options without significant detours',
             },
