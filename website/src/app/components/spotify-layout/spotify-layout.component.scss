@@ -5,6 +5,24 @@ $spotify-light-gray: #b3b3b3;
 $spotify-white: #ffffff;
 $spotify-green: #1db954;
 
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 :host {
   display: block;
   height: 100vh;
@@ -60,7 +78,8 @@ $spotify-green: #1db954;
   align-items: center;
   justify-content: space-between;
   padding: 16px 32px;
-  background-color: rgba(18, 18, 18, 0.8);
+  background-color: rgba($spotify-black, 0.8);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
@@ -75,10 +94,8 @@ $spotify-green: #1db954;
       height: 32px;
       border-radius: 50%;
       background-color: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: $spotify-white;
+      @include flex-center;
       border: none;
       cursor: pointer;
 
@@ -102,13 +119,13 @@ $spotify-green: #1db954;
     .search-bar {
       display: flex;
       align-items: center;
-      background-color: #fff;
+      background-color: $spotify-white;
       border-radius: 24px;
       padding: 6px 12px;
       width: 100%;
 
       .search-icon {
-        color: #121212;
+        color: $spotify-black;
         margin-right: 8px;
       }
 
@@ -118,7 +135,7 @@ $spotify-green: #1db954;
         flex: 1;
         font-size: 14px;
         outline: none;
-        color: #121212;
+        color: $spotify-black;
       }
     }
   }
@@ -128,15 +145,13 @@ $spotify-green: #1db954;
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background-color: #282828;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: $spotify-medium-gray;
+      color: $spotify-white;
+      @include flex-center;
       cursor: pointer;
 
       &:hover {
-        background-color: #333;
+        background-color: lighten($spotify-medium-gray, 5%);
       }
     }
   }
@@ -251,24 +266,14 @@ $spotify-green: #1db954;
           margin-bottom: 8px;
           font-size: 16px;
           line-height: 1.4;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
+          @include line-clamp(2);
         }
 
         .result-subtitle {
           color: #b3b3b3;
           font-size: 14px;
           line-height: 1.4;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
+          @include line-clamp(3);
           margin-bottom: 4px;
         }
       }
@@ -291,12 +296,9 @@ $spotify-green: #1db954;
 }
 
 .main-view {
-  display: flex;
-  flex-direction: column;
   padding: 24px;
   width: 100%;
   box-sizing: border-box;
-  max-width: 100%;
   overflow-y: auto;
   height: calc(100% - 64px);
 
@@ -313,8 +315,7 @@ $spotify-green: #1db954;
       padding: 16px;
       display: flex;
       flex-direction: column;
-      height: 100%;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s;
 
       &:hover {
         background: lighten($spotify-dark-gray, 5%);
@@ -326,7 +327,6 @@ $spotify-green: #1db954;
         border-radius: 4px;
         overflow: hidden;
         margin-bottom: 16px;
-        flex-shrink: 0;
 
         img {
           width: 100%;
@@ -336,33 +336,19 @@ $spotify-green: #1db954;
       }
 
       .playlist-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-
         .playlist-title {
           font-size: 16px;
           font-weight: 600;
           color: $spotify-white;
           margin-bottom: 8px;
-          display: -webkit-box;
-          -webkit-line-clamp: 1;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
+          @include line-clamp(1);
           line-height: 1.2;
         }
 
         .playlist-tech {
           font-size: 13px;
           color: $spotify-light-gray;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
+          @include line-clamp(2);
           line-height: 1.4;
           height: 36px;
         }
@@ -401,8 +387,7 @@ $spotify-green: #1db954;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   border: none;
   cursor: pointer;
   font-size: 20px;
@@ -470,12 +455,10 @@ $spotify-green: #1db954;
         .playlist-content {
           .playlist-title {
             font-size: 14px;
-            line-height: 1.2;
           }
 
           .playlist-tech {
             font-size: 12px;
-            line-height: 1.4;
             height: 33.6px;
           }
         }
