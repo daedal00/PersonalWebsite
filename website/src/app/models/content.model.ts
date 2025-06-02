@@ -9,6 +9,7 @@ export interface Content {
   wallpaperLink?: string;
   reportLink?: string;
   notebookLink?: string;
+  liveWebsiteLink?: string;
   details?: Record<string, any>;
   date?: string;
   duration?: string;

@@ -246,12 +246,12 @@ export class ContentService {
               'A playful and creative website designed to ask friends and others out for BigWay restaurant in a fun, interactive way with form responses sent via email.',
             imageUrl: 'assets/images/default-item.jpg',
             link: 'https://github.com/daedal00/ilovebigway',
+            liveWebsiteLink:
+              'https://www.imadethissitetoaskyououtforbigway.com/',
             details: {
               Duration: 'April 2025',
               Role: 'Full-stack Developer',
               'Development Time': 'Single day project',
-              'Live Website':
-                'https://www.imadethissitetoaskyououtforbigway.com/',
               'Project Concept':
                 'Creative approach to asking friends and others out by building a custom website experience',
               Technologies: [
@@ -569,21 +569,42 @@ export class ContentService {
         items: [
           {
             id: 'edu1',
-            title: 'Bachelor of Combined Major in Science (Computer Science)',
+            title:
+              'Bachelor of Combined Major in Science (Computer Science + Physics)',
             subtitle: 'University of British Columbia',
             description:
               'Comprehensive education in computer science fundamentals, software engineering, and related disciplines.',
             imageUrl: 'assets/images/ubc.jpg',
             details: {
               Degree:
-                'Bachelor of Combined Major in Science (Computer Science)',
+                'Bachelor of Combined Major in Science (Computer Science + Physics)',
               'Expected Graduation': '2025',
               Location: 'Vancouver, BC',
               'Relevant Coursework':
                 'Data Structures and Algorithms, Database Systems, Computational Data Science, Intro. Artificial Intelligence, Computer Networking, Reliability and Security, Operating Systems, Computer Systems.',
             },
             date: 'Expected 2025',
-            duration: '4 years',
+            duration: '5 years',
+          },
+          {
+            id: 'edu2',
+            title: 'International Baccalaureate Diploma',
+            subtitle: 'Pacific Academy',
+            description:
+              'Internationally recognized high school diploma with rigorous academic program emphasizing critical thinking and global perspective.',
+            imageUrl: 'assets/images/default-item.jpg',
+            details: {
+              Diploma: 'International Baccalaureate Diploma',
+              'Graduation Year': '2020',
+              Location: 'Surrey, BC',
+              'Higher Level Courses': 'Biology, English, History',
+              'Academic Focus':
+                'Sciences and Humanities with international perspective',
+              'Program Benefits':
+                'Critical thinking, research skills, global awareness, university preparation',
+            },
+            date: '2018-2020',
+            duration: '2 years',
           },
         ],
       },
@@ -603,21 +624,23 @@ export class ContentService {
             imageUrl: 'assets/images/programming.jpg',
             details: {
               Technologies: [
+                { name: 'Go', icon: 'devicon-go-plain' },
                 { name: 'C', icon: 'devicon-c-plain' },
                 { name: 'C++', icon: 'devicon-cplusplus-plain' },
                 { name: 'JavaScript', icon: 'devicon-javascript-plain' },
                 { name: 'TypeScript', icon: 'devicon-typescript-plain' },
+                { name: 'Python', icon: 'devicon-python-plain' },
+                { name: 'Java', icon: 'devicon-java-plain' },
                 { name: 'HTML', icon: 'devicon-html5-plain' },
                 { name: 'CSS', icon: 'devicon-css3-plain' },
                 { name: 'SQL', icon: 'devicon-mysql-plain' },
-                { name: 'Python', icon: 'devicon-python-plain' },
-                { name: 'Java', icon: 'devicon-java-plain' },
+                { name: 'Shell', icon: 'devicon-bash-plain' },
               ],
               Languages:
-                'C, C++, JavaScript, TypeScript, HTML, CSS, SQL, Python, Java',
+                'Go, C, C++, JavaScript, TypeScript, Python, Java, HTML, CSS, SQL, Shell',
               'Proficiency Level': 'Advanced',
               Applications:
-                'Web development, systems programming, data analysis, backend services',
+                'Web development, systems programming, data analysis, backend services, microservices architecture',
             },
             date: '',
             duration: '',
@@ -627,64 +650,107 @@ export class ContentService {
             title: 'Frameworks & Libraries',
             subtitle: 'Technical Skills',
             description:
-              'Experience with modern frameworks and libraries for web and application development.',
+              'Experience with modern frameworks and libraries for web, backend, and application development.',
             imageUrl: 'assets/images/frameworks.jpg',
             details: {
               Technologies: [
+                { name: 'GraphQL', icon: 'devicon-graphql-plain' },
                 { name: 'Node.js', icon: 'devicon-nodejs-plain' },
                 { name: 'Express', icon: 'devicon-express-original' },
                 { name: 'React', icon: 'devicon-react-original' },
+                { name: 'Angular', icon: 'devicon-angularjs-plain' },
                 { name: 'Spring Boot', icon: 'devicon-spring-plain' },
                 { name: 'Flask', icon: 'devicon-flask-original' },
-                { name: 'GraphQL', icon: 'devicon-graphql-plain' },
-                { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
               ],
-              Frameworks: 'Node.js, Express, React, Spring Boot, Flask',
-              'Libraries & APIs':
-                'GraphQL, REST API, MongoDB, Mongoose, JSON-RPC, Nx, Styled-Components',
-              Specialization: 'Full-stack web development and API design',
+              'Web Frameworks': 'React, Angular, Express, Flask, Spring Boot',
+              'Backend Technologies': 'Node.js, GraphQL, REST API, gqlgen (Go)',
+              'Database & Storage': 'MongoDB, PostgreSQL, Redis, AWS S3',
+              Specialization:
+                'Full-stack web development, API design, microservices architecture',
             },
             date: '',
             duration: '',
           },
           {
             id: 'skill3',
-            title: 'Tools & Technologies',
+            title: 'Machine Learning & Data Science',
             subtitle: 'Technical Skills',
             description:
-              'Familiar with industry-standard tools and technologies for development and deployment.',
-            imageUrl: 'assets/images/tools.jpg',
+              'Expertise in machine learning algorithms, data analysis, and scientific computing for research applications.',
+            imageUrl: 'assets/images/ml-tools.jpg',
             details: {
               Technologies: [
-                { name: 'Git', icon: 'devicon-git-plain' },
-                { name: 'Linux', icon: 'devicon-linux-plain' },
-                { name: 'Docker', icon: 'devicon-docker-plain' },
-                { name: 'AWS', icon: 'devicon-amazonwebservices-original' },
-                { name: 'Jira', icon: 'devicon-jira-plain' },
-                { name: 'GitHub', icon: 'devicon-github-original' },
+                { name: 'Scikit-learn', icon: 'devicon-sklearn-plain' },
+                { name: 'NumPy', icon: 'devicon-numpy-original' },
+                { name: 'Pandas', icon: 'devicon-pandas-original' },
+                { name: 'Matplotlib', icon: 'devicon-matplotlib-plain' },
+                { name: 'Python', icon: 'devicon-python-plain' },
               ],
-              Tools:
-                'Git, Linux, Postman, Docker, Jira, Confluence, GitHub, AWS (SNS, SQS, SES)',
-              'Development Tools': 'Git, Linux, Postman, Docker',
-              'Project Management': 'Jira, Confluence, GitHub',
-              'Cloud Services': 'AWS (SNS, SQS, SES)',
-              Application: 'Version control, testing, CI/CD, containerization',
+              'ML Algorithms':
+                'Random Forest, SVM, Classification, Regression, Cross-validation',
+              'Data Processing':
+                'Feature engineering, statistical analysis, data visualization, spatial data analysis',
+              'Scientific Libraries':
+                'Scikit-learn, NumPy, Pandas, Matplotlib, Seaborn, Astropy',
+              'Research Applications':
+                'Astrophysics data analysis, cosmic structure classification, SDSS survey data',
+              'Specialized Tools':
+                'cKDTree for nearest-neighbor calculations, HalvingGridSearchCV for hyperparameter tuning',
+              'Performance Metrics':
+                'F1 score optimization, precision-recall analysis, model validation',
             },
             date: '',
             duration: '',
           },
           {
             id: 'skill4',
-            title: 'Soft Skills',
+            title: 'DevOps & Cloud Technologies',
+            subtitle: 'Technical Skills',
+            description:
+              'Experience with containerization, orchestration, cloud services, and modern development tools.',
+            imageUrl: 'assets/images/tools.jpg',
+            details: {
+              Technologies: [
+                { name: 'Docker', icon: 'devicon-docker-plain' },
+                { name: 'Kubernetes', icon: 'devicon-kubernetes-plain' },
+                { name: 'Git', icon: 'devicon-git-plain' },
+                { name: 'Linux', icon: 'devicon-linux-plain' },
+                { name: 'AWS', icon: 'devicon-amazonwebservices-original' },
+                { name: 'GitHub', icon: 'devicon-github-original' },
+              ],
+              Containerization:
+                'Docker, Kubernetes orchestration, microservices deployment',
+              'Cloud Services':
+                'AWS (SNS, SQS, SES, S3), Vercel, serverless functions',
+              'Development Tools':
+                'Git, Linux (Arch, Wayland), Postman, CI/CD with GitHub Actions',
+              'Project Management': 'Jira, Confluence, Agile methodologies',
+              'Monitoring & Logging':
+                'Prometheus monitoring, structured logging, performance optimization',
+            },
+            date: '',
+            duration: '',
+          },
+          {
+            id: 'skill5',
+            title: 'Soft Skills & Domain Knowledge',
             subtitle: 'Professional Attributes',
             description:
-              'Strong interpersonal and professional capabilities that complement technical expertise.',
+              'Strong interpersonal capabilities and specialized knowledge that complement technical expertise.',
             imageUrl: 'assets/images/soft-skills.jpg',
             details: {
-              Teamwork: 'Cross-functional collaboration, agile methodologies',
-              Communication: 'Technical documentation, team coordination',
-              'Problem Solving': 'Analytical thinking, optimization strategies',
-              'Project Management': 'Timeline management, requirement analysis',
+              'Technical Communication':
+                'Research documentation, technical writing, UML diagrams',
+              'Problem Solving':
+                'Analytical thinking, optimization strategies, debugging, algorithm design',
+              'Project Management':
+                'Timeline management, requirement analysis, cross-functional collaboration',
+              'Domain Expertise':
+                'Astrophysics, cosmic structure analysis, financial technology, system administration',
+              'Research Skills':
+                'Scientific methodology, data interpretation, statistical validation, peer review process',
+              Leadership:
+                'Team coordination, technical mentoring, architecture decision-making',
             },
             date: '',
             duration: '',

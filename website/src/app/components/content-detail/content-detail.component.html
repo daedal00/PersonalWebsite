@@ -62,6 +62,17 @@
           </button>
         </div>
 
+        <!-- Live Website Button -->
+        <div *ngIf="content.liveWebsiteLink" class="content-link">
+          <button
+            class="link-btn live-site-btn"
+            (click)="openLiveWebsiteLink()"
+          >
+            <i class="bi bi-globe"></i>
+            <span>Visit Live Website</span>
+          </button>
+        </div>
+
         <!-- Report PDF Button -->
         <div *ngIf="content.reportLink" class="content-link">
           <button class="link-btn report-btn" (click)="openReportLink()">

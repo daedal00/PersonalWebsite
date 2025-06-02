@@ -47,6 +47,12 @@ export class ContentDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  openLiveWebsiteLink(): void {
+    if (this.content?.liveWebsiteLink) {
+      window.open(this.content.liveWebsiteLink, '_blank');
+    }
+  }
+
   openWallpaperLink(): void {
     if (this.content?.wallpaperLink) {
       window.open(this.content.wallpaperLink, '_blank');

@@ -278,6 +278,14 @@ $spotify-green: #1db954;
               background-color: lighten(#f7b731, 10%);
             }
           }
+
+          &.live-site-btn {
+            background-color: #2ed573;
+
+            &:hover {
+              background-color: lighten(#2ed573, 10%);
+            }
+          }
         }
       }
     }
