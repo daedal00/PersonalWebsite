@@ -540,7 +540,7 @@ export class ContentService {
               'Developed income and expense categorization systems, automated email parsing, and led database migrations in a fast-paced fintech environment.',
             imageUrl: 'assets/images/savi.jpg',
             details: {
-              Duration: 'Jan. 2024 - Sep. 2024',
+              Duration: 'Jan. 2024 - Aug. 2024',
               Location: 'Remote',
               Technologies: [
                 { name: 'TypeScript', icon: 'devicon-typescript-plain' },
@@ -555,8 +555,8 @@ export class ContentService {
               Collaboration:
                 'Worked with cross-functional team of 5 to architect technical documents for automation processes.',
             },
-            date: 'Jan. 2024 - Sep. 2024',
-            duration: '9 months',
+            date: 'Jan. 2024 - Aug. 2024',
+            duration: '8 months',
           },
         ],
       },
