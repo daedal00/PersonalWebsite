@@ -357,6 +357,90 @@ export class ContentService {
             date: 'Dec. 2022',
             duration: '4 weeks',
           },
+          {
+            id: 'project8',
+            title: 'Hyprland Dotfiles',
+            subtitle: 'Shell, CSS, Configuration Management',
+            description:
+              'Personal dotfiles configuration for Arch Linux with Hyprland window manager, featuring a beautiful Gruvbox-themed desktop environment.',
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/dotfiles',
+            details: {
+              Duration: '2024 - Present',
+              Role: 'System Administrator',
+              'System Setup': 'Arch Linux with Hyprland window manager',
+              'Key Components':
+                'Waybar status bar, Wofi application launcher, custom Hyprland configuration, Gruvbox color scheme throughout',
+              Technologies: [
+                { name: 'Shell', icon: 'devicon-bash-plain' },
+                { name: 'CSS', icon: 'devicon-css3-plain' },
+                { name: 'Linux', icon: 'devicon-linux-plain' },
+              ],
+              'Configuration Files':
+                'Hyprland window manager config, Waybar status bar styling, Wofi launcher themes, custom scripts and aliases',
+              'Design Theme':
+                'Gruvbox color palette with consistent theming across all components',
+              'Window Manager':
+                'Hyprland - modern Wayland compositor with tiling capabilities',
+              'Wallpaper Download':
+                'https://gruvbox-wallpapers.pages.dev/wallpapers/anime/my-neighbor-totoro-sunflowers.png',
+              Features:
+                'Tiling window management, custom keybindings, aesthetic status bar, application launcher integration, wallpaper collection',
+              'Learning Outcomes':
+                'Advanced Linux system administration, Wayland protocol understanding, shell scripting, CSS styling for system components',
+            },
+            date: '2024 - Present',
+            duration: 'Ongoing',
+          },
+          {
+            id: 'project9',
+            title: 'Muse: Music Discovery & Review Platform',
+            subtitle:
+              'Go, GraphQL, React, TypeScript, Kubernetes, Microservices',
+            description:
+              'A Letterboxd-inspired app for music lovers, built with a modern microservices architecture. Features album reviews, playlist curation, and music discovery.',
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/Muse',
+            details: {
+              Duration: '2024',
+              Role: 'Full-stack Developer & Architect',
+              'Project Type': 'Personal Project - Production-grade Application',
+              'Key Features':
+                'User profiles with custom avatars, album ratings and reviews (1-5 stars), playlist creation and management, real-time review broadcasting, cursor-based pagination',
+              'Frontend Technologies': [
+                { name: 'React', icon: 'devicon-react-original' },
+                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
+                { name: 'Apollo Client', icon: 'devicon-graphql-plain' },
+                { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain' },
+              ],
+              'Backend Technologies': [
+                { name: 'Go', icon: 'devicon-go-plain' },
+                { name: 'GraphQL', icon: 'devicon-graphql-plain' },
+                { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
+                { name: 'Redis', icon: 'devicon-redis-plain' },
+                { name: 'Docker', icon: 'devicon-docker-plain' },
+                { name: 'Kubernetes', icon: 'devicon-kubernetes-plain' },
+              ],
+              'Architecture Highlights':
+                'Schema-first GraphQL API with gqlgen, microservices architecture, real-time subscriptions via WebSocket, Relay-style cursor pagination',
+              'External Integrations':
+                'Spotify Web API for music metadata, MusicBrainz for supplementary data and fallback lookups, AWS S3 for playlist cover image storage',
+              'DevOps & Infrastructure':
+                'Docker containerization, Kubernetes orchestration, GitHub Actions CI/CD, Prometheus monitoring, structured logging with Logrus',
+              'Technical Challenges':
+                'Synchronizing metadata from multiple external APIs, implementing cursor-based pagination, microservices orchestration, real-time data synchronization',
+              'Security Features':
+                'Bcrypt password hashing, JWT authentication with HTTP-only cookies, GraphQL resolver-level authorization',
+              'Performance Optimizations':
+                'Redis caching for popular queries, efficient database indexing, connection pooling, rate limiting for external API calls',
+              'Business Value':
+                'Provides music enthusiasts with a comprehensive platform for discovery, review, and social interaction around music, filling a gap similar to what Letterboxd does for films',
+              Scalability:
+                'Designed to scale from prototype to hundreds of thousands of users through microservices architecture and Kubernetes autoscaling',
+            },
+            date: 'May2024',
+            duration: 'Ongoing',
+          },
         ],
       },
       {
