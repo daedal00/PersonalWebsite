@@ -7,6 +7,8 @@ export interface Content {
   link?: string;
   documentationLink?: string;
   wallpaperLink?: string;
+  reportLink?: string;
+  notebookLink?: string;
   details?: Record<string, any>;
   date?: string;
   duration?: string;

@@ -262,6 +262,22 @@ $spotify-green: #1db954;
               background-color: lighten(#ff6b6b, 10%);
             }
           }
+
+          &.report-btn {
+            background-color: #4ecdc4;
+
+            &:hover {
+              background-color: lighten(#4ecdc4, 10%);
+            }
+          }
+
+          &.notebook-btn {
+            background-color: #f7b731;
+
+            &:hover {
+              background-color: lighten(#f7b731, 10%);
+            }
+          }
         }
       }
     }

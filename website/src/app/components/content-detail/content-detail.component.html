@@ -59,6 +59,22 @@
           </button>
         </div>
 
+        <!-- Report PDF Button -->
+        <div *ngIf="content.reportLink" class="content-link">
+          <button class="link-btn report-btn" (click)="openReportLink()">
+            <i class="bi bi-file-earmark-pdf"></i>
+            <span>View Final Report</span>
+          </button>
+        </div>
+
+        <!-- Notebook PDF Button -->
+        <div *ngIf="content.notebookLink" class="content-link">
+          <button class="link-btn notebook-btn" (click)="openNotebookLink()">
+            <i class="bi bi-journal-code"></i>
+            <span>View Jupyter Notebook</span>
+          </button>
+        </div>
+
         <!-- Wallpaper Download Button -->
         <div *ngIf="content.wallpaperLink" class="content-link">
           <button class="link-btn wallpaper-btn" (click)="openWallpaperLink()">

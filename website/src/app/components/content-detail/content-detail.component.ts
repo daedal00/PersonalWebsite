@@ -53,6 +53,18 @@ export class ContentDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  openReportLink(): void {
+    if (this.content?.reportLink) {
+      window.open(this.content.reportLink, '_blank');
+    }
+  }
+
+  openNotebookLink(): void {
+    if (this.content?.notebookLink) {
+      window.open(this.content.notebookLink, '_blank');
+    }
+  }
+
   openImageInNewTab(): void {
     if (this.content?.imageUrl) {
       window.open(this.content.imageUrl, '_blank');
