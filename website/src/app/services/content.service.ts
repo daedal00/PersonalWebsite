@@ -162,8 +162,6 @@ export class ContentService {
               Duration: 'May 2025 - Present',
               Role: 'Full-stack Developer & Architect',
               'Project Type': 'Personal Project - Production-grade Application',
-              Documentation:
-                'https://living-bramble-28c.notion.site/1cfade68a5ff80d2b5a0c5987671bc9f?v=1cfade68a5ff8189bcd8000cc7747e5e&source=copy_link',
               'Key Features':
                 'User profiles with custom avatars, album ratings and reviews (1-5 stars), playlist creation and management, real-time review broadcasting, cursor-based pagination',
               'Frontend Technologies':
@@ -187,6 +185,8 @@ export class ContentService {
               Scalability:
                 'Designed to scale from prototype to hundreds of thousands of users through microservices architecture and Kubernetes autoscaling',
             },
+            documentationLink:
+              'https://living-bramble-28c.notion.site/1cfade68a5ff80d2b5a0c5987671bc9f?v=1cfade68a5ff8189bcd8000cc7747e5e&source=copy_link',
             date: 'May 2025',
             duration: 'Ongoing',
           },
@@ -198,6 +198,8 @@ export class ContentService {
               'Personal dotfiles configuration for Arch Linux with Hyprland window manager, featuring a beautiful Gruvbox-themed desktop environment.',
             imageUrl: 'assets/images/default-item.jpg',
             link: 'https://github.com/daedal00/dotfiles',
+            wallpaperLink:
+              'https://gruvbox-wallpapers.pages.dev/wallpapers/anime/my-neighbor-totoro-sunflowers.png',
             details: {
               Duration: 'April 2025 - Present',
               Role: 'System Administrator',
@@ -215,8 +217,6 @@ export class ContentService {
                 'Gruvbox color palette with consistent theming across all components',
               'Window Manager':
                 'Hyprland - modern Wayland compositor with tiling capabilities',
-              'Wallpaper Download':
-                'https://gruvbox-wallpapers.pages.dev/wallpapers/anime/my-neighbor-totoro-sunflowers.png',
               Features:
                 'Tiling window management, custom keybindings, aesthetic status bar, application launcher integration, wallpaper collection',
               'Learning Outcomes':

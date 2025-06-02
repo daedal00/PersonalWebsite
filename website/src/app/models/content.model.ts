@@ -5,6 +5,8 @@ export interface Content {
   description: string;
   imageUrl: string;
   link?: string;
+  documentationLink?: string;
+  wallpaperLink?: string;
   details?: Record<string, any>;
   date?: string;
   duration?: string;
