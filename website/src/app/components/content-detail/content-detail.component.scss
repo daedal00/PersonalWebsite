@@ -214,6 +214,50 @@ $spotify-green: #1db954;
         }
       }
     }
+
+    .content-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+
+      .content-link {
+        .link-btn {
+          display: inline-flex;
+          align-items: center;
+          background-color: $accent-color;
+          color: #000;
+          font-size: 14px;
+          font-weight: 600;
+          padding: 10px 20px;
+          border-radius: 20px;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          text-decoration: none;
+          min-width: 180px;
+          justify-content: center;
+
+          i {
+            margin-right: 8px;
+            font-size: 16px;
+          }
+
+          &:hover {
+            transform: scale(1.05);
+            background-color: lighten($accent-color, 10%);
+          }
+
+          &.wallpaper-btn {
+            background-color: #ff6b6b;
+
+            &:hover {
+              background-color: lighten(#ff6b6b, 10%);
+            }
+          }
+        }
+      }
+    }
   }
 }
 

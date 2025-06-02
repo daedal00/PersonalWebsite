@@ -41,11 +41,30 @@
         </div>
       </div>
 
-      <div *ngIf="content.link" class="content-link">
-        <button class="link-btn" (click)="openExternalLink()">
-          <i class="bi bi-link-45deg"></i>
-          <span>Open Link</span>
-        </button>
+      <div class="content-actions">
+        <!-- Documentation Link Button -->
+        <div *ngIf="content.documentationLink" class="content-link">
+          <button class="link-btn" (click)="openDocumentationLink()">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>Open Documentation</span>
+          </button>
+        </div>
+
+        <!-- Wallpaper Download Button -->
+        <div *ngIf="content.wallpaperLink" class="content-link">
+          <button class="link-btn wallpaper-btn" (click)="openWallpaperLink()">
+            <i class="bi bi-image"></i>
+            <span>Download Wallpaper</span>
+          </button>
+        </div>
+
+        <!-- GitHub Repository Link -->
+        <div *ngIf="content.link" class="content-link">
+          <button class="link-btn" (click)="openExternalLink()">
+            <i class="bi bi-github"></i>
+            <span>Open GitHub Repository</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

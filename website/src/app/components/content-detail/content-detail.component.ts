@@ -41,6 +41,18 @@ export class ContentDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  openDocumentationLink(): void {
+    if (this.content?.documentationLink) {
+      window.open(this.content.documentationLink, '_blank');
+    }
+  }
+
+  openWallpaperLink(): void {
+    if (this.content?.wallpaperLink) {
+      window.open(this.content.wallpaperLink, '_blank');
+    }
+  }
+
   isArray(value: any): boolean {
     return Array.isArray(value);
   }
