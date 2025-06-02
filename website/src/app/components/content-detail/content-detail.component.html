@@ -6,6 +6,15 @@
   </div>
 
   <div class="detail-content">
+    <!-- Content Image -->
+    <div
+      class="content-image"
+      *ngIf="content.imageUrl"
+      (click)="openImageInNewTab()"
+    >
+      <img [src]="content.imageUrl" [alt]="content.title" />
+    </div>
+
     <div class="content-info">
       <h2 class="content-title">{{ content.title }}</h2>
       <div class="content-subtitle">{{ content.subtitle }}</div>

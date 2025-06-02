@@ -53,6 +53,12 @@ export class ContentDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  openImageInNewTab(): void {
+    if (this.content?.imageUrl) {
+      window.open(this.content.imageUrl, '_blank');
+    }
+  }
+
   isArray(value: any): boolean {
     return Array.isArray(value);
   }

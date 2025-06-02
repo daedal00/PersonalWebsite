@@ -38,10 +38,9 @@ export class ContentService {
     for (const playlist of this.playlists) {
       const content = playlist.items.find((item) => item.id === contentId);
       if (content) {
-        // Create a copy with empty imageUrl to satisfy the Content interface
+        // Create a copy to avoid mutating the original
         const contentCopy: Content = {
           ...content,
-          imageUrl: '', // Empty string to satisfy interface but won't be displayed
         };
 
         // Make sure Duration appears first in the details object for better UI organization
