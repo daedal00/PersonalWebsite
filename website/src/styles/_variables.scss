@@ -1,32 +1,158 @@
-// Colors
-$background-color: #121212;
+// Spotify Color System - Updated for authenticity
+$background-color: #000000;
 $sidebar-bg: #000000;
-$card-bg: #181818;
-$active-bg: #282828;
+$card-bg: #121212;
+$active-bg: #1a1a1a;
+$hover-bg: #2a2a2a;
 $text-color: #ffffff;
-$text-secondary: #b3b3b3;
-$accent-color: #1db954;
+$text-secondary: #a7a7a7;
+$text-muted: #6a6a6a;
+$accent-color: #1ed760;
+$accent-hover: #1fdf64;
+
+// Extended Color Palette
+$spotify-black: #000000;
+$spotify-dark-gray: #121212;
+$spotify-card-gray: #181818;
+$spotify-medium-gray: #282828;
+$spotify-light-gray: #a7a7a7;
+$spotify-white: #ffffff;
+$spotify-green: #1ed760;
+$spotify-green-hover: #1fdf64;
+
+// State Colors
+$success-color: #1ed760;
+$warning-color: #ffa500;
+$error-color: #e22134;
+$info-color: #1ed760;
 
 // Gradients
-$purple-gradient: linear-gradient(135deg, #450af5, #c4efd9);
+$primary-gradient: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+$purple-gradient: linear-gradient(135deg, #7358ff 0%, #2d46b9 100%);
+$blue-gradient: linear-gradient(135deg, #2e77d0 0%, #2941ab 100%);
 
-// Fonts
-$default-font: "Circular Std", Helvetica, Arial, sans-serif;
+// Typography
+$font-family-primary: "Montserrat", "Gotham", "Helvetica Neue", Helvetica, Arial,
+  sans-serif;
+$font-family-mono: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
 
-// Spacing
-$spacing-xs: 4px;
-$spacing-sm: 8px;
-$spacing-md: 16px;
-$spacing-lg: 24px;
-$spacing-xl: 32px;
+// Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
 
-// Breakpoints
-$breakpoint-sm: 576px;
+// Font Sizes
+$font-size-xs: 11px;
+$font-size-sm: 12px;
+$font-size-base: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 30px;
+$font-size-4xl: 36px;
+
+// Line Heights
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// Spacing System
+$spacing-0: 0;
+$spacing-1: 4px;
+$spacing-2: 8px;
+$spacing-3: 12px;
+$spacing-4: 16px;
+$spacing-5: 20px;
+$spacing-6: 24px;
+$spacing-8: 32px;
+$spacing-10: 40px;
+$spacing-12: 48px;
+$spacing-16: 64px;
+$spacing-20: 80px;
+
+// Legacy spacing (for backward compatibility)
+$spacing-xs: $spacing-1;
+$spacing-sm: $spacing-2;
+$spacing-md: $spacing-4;
+$spacing-lg: $spacing-6;
+$spacing-xl: $spacing-8;
+
+// Border Radius
+$radius-none: 0;
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+$radius-xl: 12px;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// Spotify-specific shadows
+$spotify-shadow-1: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+$spotify-shadow-2: 0 8px 24px rgba(0, 0, 0, 0.5);
+$spotify-shadow-3: 0 16px 40px rgba(0, 0, 0, 0.25);
+
+// Z-index Scale
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Breakpoints (Mobile-first)
+$breakpoint-xs: 475px;
+$breakpoint-sm: 640px;
 $breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
 
-// Animation
-$transition-fast: 0.1s ease;
+// Animation & Transitions
+$transition-fast: 0.15s ease;
 $transition-default: 0.2s ease;
 $transition-slow: 0.3s ease;
+$transition-slower: 0.5s ease;
+
+// Cubic bezier easing curves
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Component-specific variables
+$player-height: 90px;
+$player-height-mobile: 70px;
+$sidebar-width: 240px;
+$sidebar-width-collapsed: 72px;
+$topbar-height: 64px;
+
+// Grid system
+$grid-columns: 12;
+$grid-gutter-width: 24px;
+$grid-breakpoints: (
+  xs: 0,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+  xxl: $breakpoint-2xl,
+);
+
+// Opacity scale
+$opacity-0: 0;
+$opacity-25: 0.25;
+$opacity-50: 0.5;
+$opacity-75: 0.75;
+$opacity-100: 1;

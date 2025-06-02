@@ -54,11 +54,13 @@ export class SidebarComponent implements OnInit {
   }
 
   navigateToHome(): void {
+    this.contentService.toggleSidebar(false);
     this.router.navigate(['/']);
     this.menuItemClicked.emit();
   }
 
   navigateToPlaylist(playlistId: string): void {
+    this.contentService.toggleSidebar(false);
     this.router.navigate(['/playlist', playlistId]);
     this.menuItemClicked.emit();
   }

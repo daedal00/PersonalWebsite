@@ -171,6 +171,8 @@ export class SpotifyLayoutComponent implements OnInit {
     if (result.type === 'playlist') {
       this.navigateToPlaylist(result.id);
     } else if (result.type === 'content') {
+      // Close detail sidebar before navigating to avoid stale content
+      this.contentService.toggleSidebar(false);
       // Navigate to the playlist first, then select the content
       this.router.navigate(['/playlist', result.playlistId]).then(() => {
         // After navigation completes, select the specific content
@@ -181,6 +183,8 @@ export class SpotifyLayoutComponent implements OnInit {
   }
 
   navigateToPlaylist(playlistId: string): void {
+    // Close the detail sidebar when navigating to a different playlist
+    this.contentService.toggleSidebar(false);
     this.router.navigate(['/playlist', playlistId]);
     this.isSearchActive = false;
   }

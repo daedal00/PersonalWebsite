@@ -538,7 +538,7 @@ export class ContentService {
             subtitle: 'Savi Finance',
             description:
               'Developed income and expense categorization systems, automated email parsing, and led database migrations in a fast-paced fintech environment.',
-            imageUrl: 'assets/images/savi.jpg',
+            imageUrl: '',
             details: {
               Duration: 'Jan. 2024 - Aug. 2024',
               Location: 'Remote',
@@ -574,7 +574,7 @@ export class ContentService {
             subtitle: 'University of British Columbia',
             description:
               'Comprehensive education in computer science fundamentals, software engineering, and related disciplines.',
-            imageUrl: 'assets/images/ubc.jpg',
+            imageUrl: '',
             details: {
               Degree:
                 'Bachelor of Combined Major in Science (Computer Science + Physics)',
@@ -592,7 +592,7 @@ export class ContentService {
             subtitle: 'Pacific Academy',
             description:
               'Internationally recognized high school diploma with rigorous academic program emphasizing critical thinking and global perspective.',
-            imageUrl: 'assets/images/default-item.jpg',
+            imageUrl: '',
             details: {
               Diploma: 'International Baccalaureate Diploma',
               'Graduation Year': '2020',
@@ -621,7 +621,7 @@ export class ContentService {
             subtitle: 'Technical Skills',
             description:
               'Proficient in various programming languages for different application domains.',
-            imageUrl: 'assets/images/programming.jpg',
+            imageUrl: '',
             details: {
               Technologies: [
                 { name: 'Go', icon: 'devicon-go-plain' },
@@ -651,7 +651,7 @@ export class ContentService {
             subtitle: 'Technical Skills',
             description:
               'Experience with modern frameworks and libraries for web, backend, and application development.',
-            imageUrl: 'assets/images/frameworks.jpg',
+            imageUrl: '',
             details: {
               Technologies: [
                 { name: 'GraphQL', icon: 'devicon-graphql-plain' },
@@ -677,7 +677,7 @@ export class ContentService {
             subtitle: 'Technical Skills',
             description:
               'Expertise in machine learning algorithms, data analysis, and scientific computing for research applications.',
-            imageUrl: 'assets/images/ml-tools.jpg',
+            imageUrl: '',
             details: {
               Technologies: [
                 { name: 'Scikit-learn', icon: 'devicon-sklearn-plain' },
@@ -708,7 +708,7 @@ export class ContentService {
             subtitle: 'Technical Skills',
             description:
               'Experience with containerization, orchestration, cloud services, and modern development tools.',
-            imageUrl: 'assets/images/tools.jpg',
+            imageUrl: '',
             details: {
               Technologies: [
                 { name: 'Docker', icon: 'devicon-docker-plain' },
@@ -737,7 +737,7 @@ export class ContentService {
             subtitle: 'Professional Attributes',
             description:
               'Strong interpersonal capabilities and specialized knowledge that complement technical expertise.',
-            imageUrl: 'assets/images/soft-skills.jpg',
+            imageUrl: '',
             details: {
               'Technical Communication':
                 'Research documentation, technical writing, UML diagrams',
