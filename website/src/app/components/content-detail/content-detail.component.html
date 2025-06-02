@@ -9,7 +9,10 @@
     <!-- Content Image -->
     <div
       class="content-image"
-      *ngIf="content.imageUrl"
+      *ngIf="
+        content.imageUrl &&
+        content.imageUrl !== 'assets/images/default-item.jpg'
+      "
       (click)="openImageInNewTab()"
     >
       <img [src]="content.imageUrl" [alt]="content.title" />

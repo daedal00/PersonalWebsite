@@ -190,6 +190,97 @@ export class ContentService {
             duration: 'Ongoing',
           },
           {
+            id: 'project10',
+            title: 'Cosmic Void Galaxies Machine Learning',
+            subtitle: 'Python, Scikit-learn, Astropy, Machine Learning',
+            description:
+              'Applied supervised machine learning to classify galaxies residing within cosmic voids using SDSS DR7 data, achieving 0.80 F1 score with Random Forest classifier.',
+            imageUrl: 'assets/images/default-item.jpg',
+            reportLink:
+              'assets/Identifying Cosmic Void Galaxies with Machine Learning_ 310 Final Project Report.pdf',
+            notebookLink: 'assets/SDSS_Catalog.pdf',
+            details: {
+              Duration: 'April 2025',
+              Role: 'Data Scientist & Researcher',
+              'Course Project': 'Physics 310: Machine Learning with Physics',
+              'Research Objective':
+                'Identify galaxies residing within cosmic voids using machine learning to enhance understanding of large-scale cosmic structures',
+              'Data Source':
+                'Sloan Digital Sky Survey (SDSS) DR7 with precomputed void catalogue',
+              'Key Achievements':
+                'F1 score of 0.80 for void class classification, 55.4% mean per-void recall, 95% void detection rate',
+              Technologies: [
+                { name: 'Python', icon: 'devicon-python-plain' },
+                { name: 'Scikit-learn', icon: 'devicon-sklearn-plain' },
+                { name: 'NumPy', icon: 'devicon-numpy-original' },
+                { name: 'Pandas', icon: 'devicon-pandas-original' },
+                { name: 'Matplotlib', icon: 'devicon-matplotlib-plain' },
+              ],
+              'ML Techniques':
+                'Random Forest Classifier, HalvingGridSearchCV hyperparameter tuning, cross-validation',
+              'Astronomical Tools':
+                'Astropy for coordinate transformations, cKDTree for nearest-neighbor calculations',
+              'Data Processing':
+                'Feature engineering on spatial coordinates (x,y,z), environmental features, nearest-neighbor distances',
+              'Model Performance':
+                'Outperformed baseline models including Dummy Classifier and Linear SVC',
+              'Feature Importance':
+                'Spatial coordinates and nearest-neighbor distance were most influential predictors',
+              Visualization:
+                '3D scatter plots confirming predicted void galaxies cluster in underdense regions',
+              'Scientific Impact':
+                'Demonstrated ML as complementary approach to traditional void-finding algorithms',
+              'Technical Skills':
+                'Astronomical dataset handling, feature engineering, model optimization, statistical validation',
+              Documentation:
+                'Comprehensive final report with methodology, results, and astrophysical insights',
+            },
+            date: 'April 2025',
+            duration: '4 months',
+          },
+          {
+            id: 'project11',
+            title: 'BigWay Fun Invite Website',
+            subtitle: 'JavaScript, HTML, CSS, Express',
+            description:
+              'A playful and creative website designed to ask friends and others out for BigWay restaurant in a fun, interactive way with form responses sent via email.',
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/ilovebigway',
+            details: {
+              Duration: 'April 2025',
+              Role: 'Full-stack Developer',
+              'Development Time': 'Single day project',
+              'Live Website':
+                'https://www.imadethissitetoaskyououtforbigway.com/',
+              'Project Concept':
+                'Creative approach to asking friends and others out by building a custom website experience',
+              Technologies: [
+                { name: 'JavaScript', icon: 'devicon-javascript-plain' },
+                { name: 'HTML', icon: 'devicon-html5-plain' },
+                { name: 'CSS', icon: 'devicon-css3-plain' },
+                { name: 'Express', icon: 'devicon-express-original' },
+                { name: 'Node.js', icon: 'devicon-nodejs-plain' },
+              ],
+              'Key Features':
+                'Interactive password entry, personalized user experience, availability scheduling, email form submission',
+              'User Flow':
+                'Password entry → Name collection → Interest assessment → Scheduling → Contact information → Email response',
+              'Technical Implementation':
+                'Frontend with vanilla JavaScript for interactivity, Express backend for form processing and email sending',
+              'Email Integration':
+                'Automated email responses with form data collection for seamless communication',
+              'Design Philosophy':
+                'Fun, engaging user interface with playful interactions and smooth user journey',
+              Deployment: 'Hosted with live domain for real-world usage',
+              'Creative Approach':
+                'Combines web development skills with personal creativity for unique invitation approach',
+              'Learning Outcomes':
+                'Rapid prototyping, full-stack development in constrained timeframe, creative problem-solving',
+            },
+            date: 'April 2025',
+            duration: '1 day',
+          },
+          {
             id: 'project8',
             title: 'Hyprland Dotfiles',
             subtitle: 'Shell, CSS, Configuration Management',
@@ -431,97 +522,6 @@ export class ContentService {
             },
             date: 'Dec. 2022',
             duration: '4 weeks',
-          },
-          {
-            id: 'project10',
-            title: 'Cosmic Void Galaxies Machine Learning',
-            subtitle: 'Python, Scikit-learn, Astropy, Machine Learning',
-            description:
-              'Applied supervised machine learning to classify galaxies residing within cosmic voids using SDSS DR7 data, achieving 0.80 F1 score with Random Forest classifier.',
-            imageUrl: 'assets/images/default-item.jpg',
-            reportLink:
-              'assets/Identifying Cosmic Void Galaxies with Machine Learning_ 310 Final Project Report.pdf',
-            notebookLink: 'assets/SDSS_Catalog.pdf',
-            details: {
-              Duration: 'April 2025',
-              Role: 'Data Scientist & Researcher',
-              'Course Project': 'Physics 310: Machine Learning with Physics',
-              'Research Objective':
-                'Identify galaxies residing within cosmic voids using machine learning to enhance understanding of large-scale cosmic structures',
-              'Data Source':
-                'Sloan Digital Sky Survey (SDSS) DR7 with precomputed void catalogue',
-              'Key Achievements':
-                'F1 score of 0.80 for void class classification, 55.4% mean per-void recall, 95% void detection rate',
-              Technologies: [
-                { name: 'Python', icon: 'devicon-python-plain' },
-                { name: 'Scikit-learn', icon: 'devicon-sklearn-plain' },
-                { name: 'NumPy', icon: 'devicon-numpy-original' },
-                { name: 'Pandas', icon: 'devicon-pandas-original' },
-                { name: 'Matplotlib', icon: 'devicon-matplotlib-plain' },
-              ],
-              'ML Techniques':
-                'Random Forest Classifier, HalvingGridSearchCV hyperparameter tuning, cross-validation',
-              'Astronomical Tools':
-                'Astropy for coordinate transformations, cKDTree for nearest-neighbor calculations',
-              'Data Processing':
-                'Feature engineering on spatial coordinates (x,y,z), environmental features, nearest-neighbor distances',
-              'Model Performance':
-                'Outperformed baseline models including Dummy Classifier and Linear SVC',
-              'Feature Importance':
-                'Spatial coordinates and nearest-neighbor distance were most influential predictors',
-              Visualization:
-                '3D scatter plots confirming predicted void galaxies cluster in underdense regions',
-              'Scientific Impact':
-                'Demonstrated ML as complementary approach to traditional void-finding algorithms',
-              'Technical Skills':
-                'Astronomical dataset handling, feature engineering, model optimization, statistical validation',
-              Documentation:
-                'Comprehensive final report with methodology, results, and astrophysical insights',
-            },
-            date: 'April 2025',
-            duration: '4 months',
-          },
-          {
-            id: 'project11',
-            title: 'BigWay Dating Website',
-            subtitle: 'JavaScript, HTML, CSS, Express',
-            description:
-              'A playful and creative website designed to ask people out for BigWay restaurant in a fun, interactive way with form responses sent via email.',
-            imageUrl: 'assets/images/default-item.jpg',
-            link: 'https://github.com/daedal00/ilovebigway',
-            details: {
-              Duration: 'April 2025',
-              Role: 'Full-stack Developer',
-              'Development Time': 'Single day project',
-              'Live Website':
-                'https://www.imadethissitetoaskyououtforbigway.com/',
-              'Project Concept':
-                'Creative approach to asking people out by building a custom website experience',
-              Technologies: [
-                { name: 'JavaScript', icon: 'devicon-javascript-plain' },
-                { name: 'HTML', icon: 'devicon-html5-plain' },
-                { name: 'CSS', icon: 'devicon-css3-plain' },
-                { name: 'Express', icon: 'devicon-express-original' },
-                { name: 'Node.js', icon: 'devicon-nodejs-plain' },
-              ],
-              'Key Features':
-                'Interactive password entry, personalized user experience, availability scheduling, email form submission',
-              'User Flow':
-                'Password entry → Name collection → Interest assessment → Scheduling → Contact information → Email response',
-              'Technical Implementation':
-                'Frontend with vanilla JavaScript for interactivity, Express backend for form processing and email sending',
-              'Email Integration':
-                'Automated email responses with form data collection for seamless communication',
-              'Design Philosophy':
-                'Fun, engaging user interface with playful interactions and smooth user journey',
-              Deployment: 'Hosted with live domain for real-world usage',
-              'Creative Approach':
-                'Combines web development skills with personal creativity for unique dating approach',
-              'Learning Outcomes':
-                'Rapid prototyping, full-stack development in constrained timeframe, creative problem-solving',
-            },
-            date: 'April 2025',
-            duration: '1 day',
           },
         ],
       },
