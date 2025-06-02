@@ -196,7 +196,7 @@ export class ContentService {
             subtitle: 'Shell, CSS, Configuration Management',
             description:
               'Personal dotfiles configuration for Arch Linux with Hyprland window manager, featuring a beautiful Gruvbox-themed desktop environment.',
-            imageUrl: 'assets/images/default-item.jpg',
+            imageUrl: 'assets/wallpaper.png',
             link: 'https://github.com/daedal00/dotfiles',
             wallpaperLink:
               'https://gruvbox-wallpapers.pages.dev/wallpapers/anime/my-neighbor-totoro-sunflowers.png',
