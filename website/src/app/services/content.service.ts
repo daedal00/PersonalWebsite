@@ -150,6 +150,170 @@ export class ContentService {
         type: PlaylistType.PROJECTS,
         items: [
           {
+            id: 'project9',
+            title: 'Muse: Music Discovery & Review Platform',
+            subtitle:
+              'Go, GraphQL, React, TypeScript, Kubernetes, Microservices',
+            description:
+              'A Letterboxd-inspired app for music lovers, built with a modern microservices architecture. Features album reviews, playlist curation, and music discovery.',
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/Muse',
+            details: {
+              Duration: 'May 2025 - Present',
+              Role: 'Full-stack Developer & Architect',
+              'Project Type': 'Personal Project - Production-grade Application',
+              Documentation:
+                'https://living-bramble-28c.notion.site/1cfade68a5ff80d2b5a0c5987671bc9f?v=1cfade68a5ff8189bcd8000cc7747e5e&source=copy_link',
+              'Key Features':
+                'User profiles with custom avatars, album ratings and reviews (1-5 stars), playlist creation and management, real-time review broadcasting, cursor-based pagination',
+              'Frontend Technologies':
+                'React, TypeScript, Apollo Client, Tailwind CSS, Vite',
+              'Backend Technologies':
+                'Go, GraphQL (gqlgen), PostgreSQL, Redis, Docker, Kubernetes',
+              'Architecture Highlights':
+                'Schema-first GraphQL API with gqlgen, microservices architecture, real-time subscriptions via WebSocket, Relay-style cursor pagination',
+              'External Integrations':
+                'Spotify Web API for music metadata, MusicBrainz for supplementary data and fallback lookups, AWS S3 for playlist cover image storage',
+              'DevOps & Infrastructure':
+                'Docker containerization, Kubernetes orchestration, GitHub Actions CI/CD, Prometheus monitoring, structured logging with Logrus',
+              'Technical Challenges':
+                'Synchronizing metadata from multiple external APIs, implementing cursor-based pagination, microservices orchestration, real-time data synchronization',
+              'Security Features':
+                'Bcrypt password hashing, JWT authentication with HTTP-only cookies, GraphQL resolver-level authorization',
+              'Performance Optimizations':
+                'Redis caching for popular queries, efficient database indexing, connection pooling, rate limiting for external API calls',
+              'Business Value':
+                'Provides music enthusiasts with a comprehensive platform for discovery, review, and social interaction around music, filling a gap similar to what Letterboxd does for films',
+              Scalability:
+                'Designed to scale from prototype to hundreds of thousands of users through microservices architecture and Kubernetes autoscaling',
+            },
+            date: 'May 2025',
+            duration: 'Ongoing',
+          },
+          {
+            id: 'project8',
+            title: 'Hyprland Dotfiles',
+            subtitle: 'Shell, CSS, Configuration Management',
+            description:
+              'Personal dotfiles configuration for Arch Linux with Hyprland window manager, featuring a beautiful Gruvbox-themed desktop environment.',
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/dotfiles',
+            details: {
+              Duration: 'April 2025 - Present',
+              Role: 'System Administrator',
+              'System Setup': 'Arch Linux with Hyprland window manager',
+              'Key Components':
+                'Waybar status bar, Wofi application launcher, custom Hyprland configuration, Gruvbox color scheme throughout',
+              Technologies: [
+                { name: 'Shell', icon: 'devicon-bash-plain' },
+                { name: 'CSS', icon: 'devicon-css3-plain' },
+                { name: 'Linux', icon: 'devicon-linux-plain' },
+              ],
+              'Configuration Files':
+                'Hyprland window manager config, Waybar status bar styling, Wofi launcher themes, custom scripts and aliases',
+              'Design Theme':
+                'Gruvbox color palette with consistent theming across all components',
+              'Window Manager':
+                'Hyprland - modern Wayland compositor with tiling capabilities',
+              'Wallpaper Download':
+                'https://gruvbox-wallpapers.pages.dev/wallpapers/anime/my-neighbor-totoro-sunflowers.png',
+              Features:
+                'Tiling window management, custom keybindings, aesthetic status bar, application launcher integration, wallpaper collection',
+              'Learning Outcomes':
+                'Advanced Linux system administration, Wayland protocol understanding, shell scripting, CSS styling for system components',
+            },
+            date: 'April 2025',
+            duration: 'Ongoing',
+          },
+          {
+            id: 'project5',
+            title: 'Where2Eat',
+            subtitle: 'TypeScript, React, Express',
+            description:
+              'A real-time collaborative voting platform that streamlines group decision-making for restaurant choices in Vancouver and the Lower Mainland.',
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/where2eat',
+            details: {
+              Duration: 'Feb. 2025',
+              Role: 'Full-stack Developer',
+              Demo: 'Live application available online',
+              'Technical Achievements':
+                'Implemented real-time synchronization, built responsive UI with React hooks, developed secure invite code system',
+              'Key Features':
+                'Real-time voting system, invite code generation, user-based voting, location-based restaurant suggestions',
+              Technologies: [
+                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
+                { name: 'React', icon: 'devicon-react-original' },
+                { name: 'Express', icon: 'devicon-express-original' },
+                { name: 'Node.js', icon: 'devicon-nodejs-plain' },
+              ],
+              'Problem Solved':
+                'Eliminated decision paralysis for groups choosing dining locations by providing a structured, real-time voting system',
+              Impact:
+                'Reduces decision time by 70% and increases group satisfaction by providing democratic results',
+              Deployment:
+                'Frontend hosted on Vercel with serverless backend functions for scalability',
+            },
+            date: 'Feb. 2025',
+            duration: '2 weeks',
+          },
+          {
+            id: 'project6',
+            title: 'RouteBite',
+            subtitle:
+              'TypeScript, Express, Google Maps + Yelp API, MongoDB, React',
+            description:
+              'An innovative travel companion app that intelligently recommends quality restaurants along user-specified routes, enhancing the journey experience.',
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/RouteBite',
+            details: {
+              Duration: 'Sept. 2024',
+              Role: 'Full-stack Developer & Project Lead',
+              'Technical Challenges':
+                'Integrated complex geospatial calculations with Google Maps API to determine restaurant proximity to routes, optimized API calls to minimize latency and costs',
+              'Key Features':
+                'Route-based restaurant recommendations, intelligent filtering based on ratings and price, customizable search radius',
+              Technologies: [
+                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
+                { name: 'React', icon: 'devicon-react-original' },
+                { name: 'Express', icon: 'devicon-express-original' },
+                { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
+                { name: 'Google Maps', icon: 'devicon-google-plain' },
+              ],
+              APIs: 'Google Maps API for route calculation, Yelp API for restaurant data',
+              'Development Process':
+                'Agile methodology with rapid one-week development cycle and continuous integration',
+              'Market Value':
+                'Addresses a common pain point for travelers who want quality dining options without significant detours',
+            },
+            date: 'Sept. 2024',
+            duration: '1 week',
+          },
+          {
+            id: 'project4',
+            title: 'Spotify Portfolio Website',
+            subtitle: 'Angular, TypeScript, SCSS',
+            description:
+              "A personal portfolio website inspired by Spotify's UI, featuring projects, experience, and education displayed as playlists and tracks.",
+            imageUrl: 'assets/images/default-item.jpg',
+            link: 'https://github.com/daedal00/PersonalWebsite',
+            details: {
+              Duration: '2024',
+              Technologies: [
+                { name: 'Angular', icon: 'devicon-angularjs-plain' },
+                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
+                { name: 'SCSS', icon: 'devicon-sass-original' },
+                { name: 'RxJS', icon: 'devicon-rxjs-original' },
+              ],
+              Features:
+                'Responsive design, music playback, interactive UI, content organization',
+              Inspiration:
+                "Spotify's interface adapted for professional portfolio presentation",
+            },
+            date: '2024',
+            duration: '2 weeks',
+          },
+          {
             id: 'project1',
             title: 'FoodTalk',
             subtitle: 'PHP, CSS, HTML, SQL, Oracle',
@@ -238,94 +402,6 @@ export class ContentService {
             duration: '4 weeks',
           },
           {
-            id: 'project4',
-            title: 'Spotify Portfolio Website',
-            subtitle: 'Angular, TypeScript, SCSS',
-            description:
-              "A personal portfolio website inspired by Spotify's UI, featuring projects, experience, and education displayed as playlists and tracks.",
-            imageUrl: 'assets/images/default-item.jpg',
-            link: 'https://github.com/daedal00/PersonalWebsite',
-            details: {
-              Duration: '2024',
-              Technologies: [
-                { name: 'Angular', icon: 'devicon-angularjs-plain' },
-                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
-                { name: 'SCSS', icon: 'devicon-sass-original' },
-                { name: 'RxJS', icon: 'devicon-rxjs-original' },
-              ],
-              Features:
-                'Responsive design, music playback, interactive UI, content organization',
-              Inspiration:
-                "Spotify's interface adapted for professional portfolio presentation",
-            },
-            date: '2024',
-            duration: '2 weeks',
-          },
-          {
-            id: 'project5',
-            title: 'Where2Eat',
-            subtitle: 'TypeScript, React, Express',
-            description:
-              'A real-time collaborative voting platform that streamlines group decision-making for restaurant choices in Vancouver and the Lower Mainland.',
-            imageUrl: 'assets/images/default-item.jpg',
-            link: 'https://github.com/daedal00/where2eat',
-            details: {
-              Duration: 'Feb. 2025',
-              Role: 'Full-stack Developer',
-              Demo: 'Live application available online',
-              'Technical Achievements':
-                'Implemented real-time synchronization, built responsive UI with React hooks, developed secure invite code system',
-              'Key Features':
-                'Real-time voting system, invite code generation, user-based voting, location-based restaurant suggestions',
-              Technologies: [
-                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
-                { name: 'React', icon: 'devicon-react-original' },
-                { name: 'Express', icon: 'devicon-express-original' },
-                { name: 'Node.js', icon: 'devicon-nodejs-plain' },
-              ],
-              'Problem Solved':
-                'Eliminated decision paralysis for groups choosing dining locations by providing a structured, real-time voting system',
-              Impact:
-                'Reduces decision time by 70% and increases group satisfaction by providing democratic results',
-              Deployment:
-                'Frontend hosted on Vercel with serverless backend functions for scalability',
-            },
-            date: 'Feb. 2025',
-            duration: '2 weeks',
-          },
-          {
-            id: 'project6',
-            title: 'RouteBite',
-            subtitle:
-              'TypeScript, Express, Google Maps + Yelp API, MongoDB, React',
-            description:
-              'An innovative travel companion app that intelligently recommends quality restaurants along user-specified routes, enhancing the journey experience.',
-            imageUrl: 'assets/images/default-item.jpg',
-            link: 'https://github.com/daedal00/RouteBite',
-            details: {
-              Duration: 'Sept. 2024',
-              Role: 'Full-stack Developer & Project Lead',
-              'Technical Challenges':
-                'Integrated complex geospatial calculations with Google Maps API to determine restaurant proximity to routes, optimized API calls to minimize latency and costs',
-              'Key Features':
-                'Route-based restaurant recommendations, intelligent filtering based on ratings and price, customizable search radius',
-              Technologies: [
-                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
-                { name: 'React', icon: 'devicon-react-original' },
-                { name: 'Express', icon: 'devicon-express-original' },
-                { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
-                { name: 'Google Maps', icon: 'devicon-google-plain' },
-              ],
-              APIs: 'Google Maps API for route calculation, Yelp API for restaurant data',
-              'Development Process':
-                'Agile methodology with rapid one-week development cycle and continuous integration',
-              'Market Value':
-                'Addresses a common pain point for travelers who want quality dining options without significant detours',
-            },
-            date: 'Sept. 2024',
-            duration: '1 week',
-          },
-          {
             id: 'project7',
             title: 'MapleStory Cubing Simulator',
             subtitle: 'Java, Swing, Object-Oriented Design',
@@ -356,90 +432,6 @@ export class ContentService {
             },
             date: 'Dec. 2022',
             duration: '4 weeks',
-          },
-          {
-            id: 'project8',
-            title: 'Hyprland Dotfiles',
-            subtitle: 'Shell, CSS, Configuration Management',
-            description:
-              'Personal dotfiles configuration for Arch Linux with Hyprland window manager, featuring a beautiful Gruvbox-themed desktop environment.',
-            imageUrl: 'assets/images/default-item.jpg',
-            link: 'https://github.com/daedal00/dotfiles',
-            details: {
-              Duration: '2024 - Present',
-              Role: 'System Administrator',
-              'System Setup': 'Arch Linux with Hyprland window manager',
-              'Key Components':
-                'Waybar status bar, Wofi application launcher, custom Hyprland configuration, Gruvbox color scheme throughout',
-              Technologies: [
-                { name: 'Shell', icon: 'devicon-bash-plain' },
-                { name: 'CSS', icon: 'devicon-css3-plain' },
-                { name: 'Linux', icon: 'devicon-linux-plain' },
-              ],
-              'Configuration Files':
-                'Hyprland window manager config, Waybar status bar styling, Wofi launcher themes, custom scripts and aliases',
-              'Design Theme':
-                'Gruvbox color palette with consistent theming across all components',
-              'Window Manager':
-                'Hyprland - modern Wayland compositor with tiling capabilities',
-              'Wallpaper Download':
-                'https://gruvbox-wallpapers.pages.dev/wallpapers/anime/my-neighbor-totoro-sunflowers.png',
-              Features:
-                'Tiling window management, custom keybindings, aesthetic status bar, application launcher integration, wallpaper collection',
-              'Learning Outcomes':
-                'Advanced Linux system administration, Wayland protocol understanding, shell scripting, CSS styling for system components',
-            },
-            date: '2024 - Present',
-            duration: 'Ongoing',
-          },
-          {
-            id: 'project9',
-            title: 'Muse: Music Discovery & Review Platform',
-            subtitle:
-              'Go, GraphQL, React, TypeScript, Kubernetes, Microservices',
-            description:
-              'A Letterboxd-inspired app for music lovers, built with a modern microservices architecture. Features album reviews, playlist curation, and music discovery.',
-            imageUrl: 'assets/images/default-item.jpg',
-            link: 'https://github.com/daedal00/Muse',
-            details: {
-              Duration: '2024',
-              Role: 'Full-stack Developer & Architect',
-              'Project Type': 'Personal Project - Production-grade Application',
-              'Key Features':
-                'User profiles with custom avatars, album ratings and reviews (1-5 stars), playlist creation and management, real-time review broadcasting, cursor-based pagination',
-              'Frontend Technologies': [
-                { name: 'React', icon: 'devicon-react-original' },
-                { name: 'TypeScript', icon: 'devicon-typescript-plain' },
-                { name: 'Apollo Client', icon: 'devicon-graphql-plain' },
-                { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain' },
-              ],
-              'Backend Technologies': [
-                { name: 'Go', icon: 'devicon-go-plain' },
-                { name: 'GraphQL', icon: 'devicon-graphql-plain' },
-                { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
-                { name: 'Redis', icon: 'devicon-redis-plain' },
-                { name: 'Docker', icon: 'devicon-docker-plain' },
-                { name: 'Kubernetes', icon: 'devicon-kubernetes-plain' },
-              ],
-              'Architecture Highlights':
-                'Schema-first GraphQL API with gqlgen, microservices architecture, real-time subscriptions via WebSocket, Relay-style cursor pagination',
-              'External Integrations':
-                'Spotify Web API for music metadata, MusicBrainz for supplementary data and fallback lookups, AWS S3 for playlist cover image storage',
-              'DevOps & Infrastructure':
-                'Docker containerization, Kubernetes orchestration, GitHub Actions CI/CD, Prometheus monitoring, structured logging with Logrus',
-              'Technical Challenges':
-                'Synchronizing metadata from multiple external APIs, implementing cursor-based pagination, microservices orchestration, real-time data synchronization',
-              'Security Features':
-                'Bcrypt password hashing, JWT authentication with HTTP-only cookies, GraphQL resolver-level authorization',
-              'Performance Optimizations':
-                'Redis caching for popular queries, efficient database indexing, connection pooling, rate limiting for external API calls',
-              'Business Value':
-                'Provides music enthusiasts with a comprehensive platform for discovery, review, and social interaction around music, filling a gap similar to what Letterboxd does for films',
-              Scalability:
-                'Designed to scale from prototype to hundreds of thousands of users through microservices architecture and Kubernetes autoscaling',
-            },
-            date: 'May2024',
-            duration: 'Ongoing',
           },
         ],
       },
