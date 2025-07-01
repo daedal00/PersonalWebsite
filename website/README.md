@@ -1,133 +1,214 @@
-# Spotify-Themed Portfolio Website
+# Samuel Kim - Portfolio Website
 
-A personal portfolio website with a Spotify-inspired UI, displaying projects, experiences, education, and skills as playlists and tracks.
+A clean, minimalistic personal portfolio website showcasing projects, experience, education, and skills with a modern dark theme and intuitive navigation.
+
+## Design Inspiration
+
+This portfolio draws inspiration from [Paco Coursey's website](https://paco.me/) - a masterclass in minimalistic design and typography. Key design principles adopted include:
+
+- **Simplicity First**: Clean layouts with essential content only
+- **Typography Focus**: Careful attention to readability and hierarchy
+- **Subtle Interactions**: Smooth transitions and hover states
+- **Content-Driven**: Design serves the content, not the other way around
+- **Professional Minimalism**: Sophisticated simplicity that showcases work effectively
+
+The goal is to create a portfolio that, like Paco's, demonstrates technical skill through both the projects displayed and the craftsmanship of the site itself.
 
 ## Features
 
-- Spotify-inspired UI with dark theme
-- Projects, experience, education, and skills organized as playlists
-- Interactive music player
+- Clean, minimalistic design with dark theme
+- Projects, experience, education, and skills organized as sections
 - Detailed view for each project/experience/skill
-- Background music playback
+- Responsive design for all devices
+- Interactive navigation and smooth transitions
+- Modern Angular architecture
 
-## How to Add Music
+## Project Structure
 
-There are two ways to add music to your portfolio:
+### Core Components
 
-### 1. Using the UI (Easiest Method)
+- **Home Component** (`src/app/home/`) - Main landing page with section overview
+- **Section Component** (`src/app/components/section/`) - Displays content items within each section
+- **Content Detail Component** (`src/app/components/content-detail/`) - Detailed view for individual items
 
-1. Click on the music icon in the player bar at the bottom of the screen
-2. Click "Upload Music" button in the dialog that appears
-3. Select an audio file from your computer
-4. Your uploaded track will automatically start playing and be added to your music library
+### Services
 
-### 2. Adding Files Directly (For Development)
+- **Content Service** (`src/app/services/content.service.ts`) - Manages portfolio content and navigation
+- Handles section selection, content filtering, and data management
 
-1. Add your music files to the `src/assets/music/` directory
-2. Make sure to include appropriate album art in `src/assets/images/`
-3. Update the `initializeDefaultTracks()` method in `src/app/services/music.service.ts` to include your tracks:
+### Models
+
+- **Content Model** (`src/app/models/content.model.ts`) - TypeScript interfaces for content structure
+- Defines Section, Content, SectionType, and Technology interfaces
+
+## Content Management
+
+### Adding New Projects
+
+Update the `initializeSections()` method in `src/app/services/content.service.ts`:
 
 ```typescript
-private initializeDefaultTracks(): void {
-  this.defaultTracks = [
-    {
-      id: 'default-1',
-      name: 'Your Track Name',
-      artist: 'Artist Name',
-      album: 'Album Name',
-      url: 'assets/music/your-file-name.mp3',
-      coverImage: 'assets/images/your-cover-image.jpg'
-    },
-    // Add more tracks as needed
-  ];
+{
+  id: 'project-id',
+  title: 'Project Title',
+  subtitle: 'Technologies Used',
+  description: 'Brief project description',
+  imageUrl: 'assets/images/project-image.jpg',
+  link: 'https://github.com/username/repo',
+  details: {
+    Duration: 'Project Timeline',
+    Role: 'Your Role',
+    'Key Features': 'Main functionality',
+    Technologies: [
+      { name: 'Technology', icon: 'devicon-tech-plain' }
+    ]
+  },
+  date: 'Date',
+  duration: 'Duration'
 }
 ```
 
-## Adding and Updating Content Images
+### Adding Experience
 
-### Where to Place Images
-
-All images for your portfolio content should be stored in the appropriate folders within the `src/assets/images/` directory:
-
-1. **Playlist Covers**:
-
-   - Place playlist cover images in `src/assets/images/`
-   - Recommended size: 300x300 pixels
-   - Reference these in `content.service.ts` for each playlist's `coverImage` property
-   - Examples: `projects.jpg`, `experience.jpg`, `education.jpg`, `skills.jpg`
-
-2. **Content Item Images**:
-
-   - Place individual content item images in `src/assets/images/`
-   - Recommended size: 200x200 pixels
-   - Reference these in `content.service.ts` for each content item's `imageUrl` property
-   - Examples: `foodtalk.jpg`, `budgetview.jpg`, `ubc.jpg`, etc.
-
-3. **Music Album Art**:
-   - Place music cover images in `src/assets/images/`
-   - Recommended size: 200x200 pixels
-   - Reference these in `music.service.ts` for each track's `coverImage` property
-   - Examples: `lofi-cover.jpg`, `ambient-cover.jpg`, etc.
-
-### Updating Image References
-
-When you add new images, you'll need to update the references in:
-
-1. **For Content**: `src/app/services/content.service.ts` in the `initializePlaylists()` method
-2. **For Music**: `src/app/services/music.service.ts` in the `initializeDefaultTracks()` method
-
-Example image paths:
+Add new experience items to the experience section in the same service file:
 
 ```typescript
-// For playlist covers
-coverImage: "assets/images/projects.jpg";
-
-// For content items
-imageUrl: "assets/images/project1.jpg";
-
-// For music tracks
-coverImage: "assets/images/music-cover.jpg";
+{
+  id: 'exp-id',
+  title: 'Job Title',
+  subtitle: 'Company Name',
+  description: 'Role description and achievements',
+  details: {
+    Duration: 'Employment Period',
+    Location: 'Location',
+    'Key Achievements': 'Major accomplishments',
+    Technologies: [
+      { name: 'Technology', icon: 'devicon-tech-plain' }
+    ]
+  }
+}
 ```
 
-## File Organization
+## Asset Management
 
-- `src/app/models/content.model.ts` - Data models for content and music
-- `src/app/services/content.service.ts` - Service for managing portfolio content
-- `src/app/services/music.service.ts` - Service for audio playback
-- `src/app/components/spotify-layout/` - Main layout component
-- `src/app/components/sidebar/` - Navigation sidebar
-- `src/app/components/playlist/` - Content display
-- `src/app/components/content-detail/` - Detailed view component
-- `src/app/components/player/` - Music player component
-- `src/assets/music/` - Music files
-- `src/assets/images/` - Cover images and other visual assets
+### Images
+
+Place all images in `src/assets/images/`:
+
+- **Project Images**: Individual project screenshots or logos
+- **Default Image**: `default-item.jpg` for items without specific images
+- **Wallpapers**: Personal wallpapers (e.g., `wallpaper.png`)
+
+Recommended image sizes:
+
+- Project images: 400x300 pixels
+- Profile images: 200x200 pixels
+
+### Documents
+
+Place downloadable documents in `src/assets/`:
+
+- Resume: `Samuel_Kim_Resume.pdf`
+- Project reports: `project-report.pdf`
+- Research papers: `research-paper.pdf`
+
+## Styling and Theme
+
+### Design System
+
+The website uses a consistent design system defined in `src/styles.scss`:
+
+- **Colors**: Dark theme with carefully chosen contrast ratios
+- **Typography**: Inter font family for optimal readability
+- **Spacing**: Consistent spacing scale for visual hierarchy
+- **Components**: Reusable design tokens for maintainability
+
+### Key Design Principles
+
+- **Minimalism**: Clean layouts with ample whitespace
+- **Readability**: Optimized typography and contrast
+- **Consistency**: Uniform spacing and component patterns
+- **Accessibility**: Proper focus states and semantic HTML
 
 ## Development
 
-1. Install dependencies: `npm install`
-2. Start development server: `ng serve`
+### Prerequisites
+
+- Node.js (v16 or higher)
+- Angular CLI (`npm install -g @angular/cli`)
+
+### Setup
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+
+   ```bash
+   ng serve
+   ```
+
 3. Navigate to `http://localhost:4200/`
 
-## Building for Production
+### Building for Production
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng build --configuration production
+```
 
-## Development server
+The build artifacts will be stored in the `dist/` directory.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Code Quality
 
-## Code scaffolding
+- **Linting**: ESLint configuration for code consistency
+- **Formatting**: Prettier for code formatting
+- **Type Safety**: Full TypeScript implementation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Deployment
 
-## Running unit tests
+The website is optimized for static hosting platforms:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Vercel** (recommended)
+- **Netlify**
+- **GitHub Pages**
+- **AWS S3 + CloudFront**
 
-## Running end-to-end tests
+## File Organization
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+src/
+├── app/
+│   ├── components/          # Reusable UI components
+│   │   ├── section/         # Section display component
+│   │   └── content-detail/  # Detailed content view
+│   ├── home/               # Main landing page
+│   ├── models/             # TypeScript interfaces
+│   ├── services/           # Business logic and data management
+│   └── app.component.*     # Root application component
+├── assets/                 # Static assets
+│   ├── images/            # Project images and media
+│   ├── favicons/          # Website icons
+│   └── *.pdf             # Downloadable documents
+└── styles.scss            # Global styles and design system
+```
 
-## Further help
+## Contributing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+- **Email**: [samuelk2@student.ubc.ca](mailto:samuelk2@student.ubc.ca)
+- **GitHub**: [daedal00](https://github.com/daedal00)
+- **LinkedIn**: [samuelkimm](https://linkedin.com/in/samuelkimm)

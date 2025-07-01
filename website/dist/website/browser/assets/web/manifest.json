@@ -1,7 +1,7 @@
 {
-  "name": "Samuel Kim - Portfolio",
-  "short_name": "SK Portfolio",
-  "description": "Samuel Kim's portfolio website with a Spotify-inspired theme",
+  "name": "Samuel Kim",
+  "short_name": "SK",
+  "description": "Software engineer and developer.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#121212",
