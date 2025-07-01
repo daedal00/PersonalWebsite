@@ -1,83 +1,124 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ContentService } from '../../services/content.service';
 import { Content } from '../../models/content.model';
+import { Location } from '@angular/common';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-content-detail',
   templateUrl: './content-detail.component.html',
   styleUrls: ['./content-detail.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   standalone: true,
 })
 export class ContentDetailComponent implements OnInit, OnDestroy {
   content: Content | null = null;
-  private subscription?: Subscription;
+  previousRoute: string = 'Index';
+  private destroy$ = new Subject<void>();
 
-  constructor(private contentService: ContentService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private contentService: ContentService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
-    this.subscription = this.contentService.selectedContent$.subscribe(
-      (content) => {
-        this.content = content;
+    // Determine back button text based on localStorage or referrer
+    const lastVisitedSection = localStorage.getItem('lastVisitedSection');
+    const referrer = document.referrer;
+
+    if (lastVisitedSection) {
+      // Capitalize first letter of section name
+      this.previousRoute =
+        lastVisitedSection.charAt(0).toUpperCase() +
+        lastVisitedSection.slice(1);
+    } else if (referrer.includes('/section/')) {
+      // Extract section name from referrer URL
+      const sectionMatch = referrer.match(/\/section\/([^\/]+)/);
+      if (sectionMatch) {
+        const sectionName = sectionMatch[1];
+        this.previousRoute =
+          sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
+      } else {
+        this.previousRoute = 'Index';
       }
-    );
+    } else {
+      this.previousRoute = 'Index';
+    }
+
+    this.route.params.subscribe((params) => {
+      const contentId = params['id'];
+      if (contentId) {
+        this.loadContent(contentId);
+      }
+    });
   }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
-  closeDetail(): void {
-    this.contentService.toggleSidebar(false);
+  private loadContent(contentId: string): void {
+    this.contentService.selectContent(contentId);
+    this.contentService.selectedContent$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((content) => {
+        this.content = content;
+      });
   }
 
-  openExternalLink(): void {
-    if (this.content?.link) {
-      window.open(this.content.link, '_blank');
-    }
+  goBack(): void {
+    this.location.back();
   }
 
-  openDocumentationLink(): void {
-    if (this.content?.documentationLink) {
-      window.open(this.content.documentationLink, '_blank');
-    }
+  getBackButtonText(): string {
+    return this.previousRoute || 'back';
   }
 
-  openLiveWebsiteLink(): void {
-    if (this.content?.liveWebsiteLink) {
-      window.open(this.content.liveWebsiteLink, '_blank');
+  shouldHideSection(key: string, value: any): boolean {
+    // Hide sections that are just text without actual links or meaningful content
+    if (
+      key === 'Documentation' &&
+      typeof value === 'string' &&
+      !value.startsWith('http')
+    ) {
+      return true;
     }
+
+    // Hide overly long sections that don't add value
+    if (typeof value === 'string' && value.length > 300) {
+      return true;
+    }
+
+    // Hide sections with generic or redundant information
+    const redundantSections = ['Project Type', 'Business Value'];
+    if (redundantSections.includes(key)) {
+      return true;
+    }
+
+    return false;
   }
 
-  openWallpaperLink(): void {
-    if (this.content?.wallpaperLink) {
-      window.open(this.content.wallpaperLink, '_blank');
-    }
+  openLink(url: string): void {
+    window.open(url, '_blank');
   }
 
-  openReportLink(): void {
-    if (this.content?.reportLink) {
-      window.open(this.content.reportLink, '_blank');
-    }
-  }
-
-  openNotebookLink(): void {
-    if (this.content?.notebookLink) {
-      window.open(this.content.notebookLink, '_blank');
-    }
-  }
-
-  openImageInNewTab(): void {
-    if (this.content?.imageUrl) {
-      window.open(this.content.imageUrl, '_blank');
-    }
+  getContentKeys(details: Record<string, any>): string[] {
+    if (!details) return [];
+    return Object.keys(details);
   }
 
   isArray(value: any): boolean {
     return Array.isArray(value);
+  }
+
+  formatDate(dateString?: string): string {
+    if (!dateString) return '';
+    return dateString;
   }
 }
