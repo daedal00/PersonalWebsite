@@ -1,73 +1,65 @@
 <div class="home-container">
-  <section class="greeting-section">
-    <h1>Welcome to My Portfolio</h1>
-    <p>
-      Explore my projects, experience, and education in a Spotify-inspired
-      interface.
-    </p>
-  </section>
+  <header class="header">
+    <h1>Samuel Kim</h1>
+  </header>
 
-  <section class="playlists-section">
-    <h2>Featured Playlists</h2>
-    <div class="playlist-grid">
-      <div
-        *ngFor="let playlist of playlists"
-        class="playlist-card"
-        (click)="navigateToPlaylist(playlist.id)"
-      >
-        <div class="playlist-image">
-          <img [src]="playlist.coverImage" alt="{{ playlist.name }}" />
-          <div class="play-overlay">
-            <button
-              class="play-button"
-              (click)="onPlayButtonClick($event)"
-              title="Play"
-            >
-              <i class="bi bi-play-circle-fill"></i>
-            </button>
+  <main class="main-content">
+    <section class="intro">
+      <p>
+        Software engineer passionate about building full-stack applications and
+        creating tools that solve real-world problems. Experienced with modern
+        web technologies, backend systems, and API development. View my
+        <a
+          href="assets/Samuel_Kim_Resume.pdf"
+          target="_blank"
+          class="resume-link"
+          >resume</a
+        >.
+      </p>
+    </section>
+
+    <section class="sections">
+      <div class="section-list">
+        <div
+          *ngFor="let section of sections"
+          class="section-item"
+          (click)="navigateToSection(section.id)"
+        >
+          <div class="section-header">
+            <h2>{{ section.name }}</h2>
+            <span class="item-count">{{ section.items.length }}</span>
           </div>
+          <p class="section-description">{{ section.description }}</p>
         </div>
-        <div class="playlist-name">{{ playlist.name }}</div>
-        <div class="playlist-description">{{ playlist.description }}</div>
       </div>
-    </div>
-  </section>
-</div>
+    </section>
 
-<!-- Custom Easter Egg Modal -->
-<div class="easter-egg-modal" *ngIf="showEasterEggModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3>Hidden Hobby: Getting beat (in sports) by Eric Chu</h3>
-      <button
-        class="close-button"
-        (click)="closeEasterEggModal()"
-        title="Close"
-      >
-        <i class="bi bi-x-lg"></i>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>Would you like to visit Eric Chu's portfolio?</p>
-      <div class="profile-preview">
-        <div class="profile-image">
-          <i class="bi bi-person-fill"></i>
-        </div>
-        <div class="profile-info">
-          <span class="profile-name">Eric Chu</span>
-          <span class="profile-subtitle"
-            >UBC Electrical Engineering Student</span
-          >
-        </div>
-      </div>
-    </div>
-    <div class="modal-actions">
-      <button class="cancel-button" (click)="closeEasterEggModal()">
-        Not Now
-      </button>
-      <button class="confirm-button" (click)="visitEricChuPage()">
-        Visit Page
-      </button>
-    </div>
-  </div>
+    <section class="now">
+      <h2>Now</h2>
+      <p>
+        Building software solutions through hands-on projects, working with
+        modern technologies like Go, TypeScript, React, and cloud platforms.
+        Currently completing my Combined Major in Computer Science and Physics
+        at UBC.
+      </p>
+      <p>
+        All I want to do is build software. Backend services, web applications,
+        scalable systems— technology is an endless medium of opportunity and
+        creativity.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <a href="mailto:samuelk2@student.ubc.ca">samuelk2&#64;student.ubc.ca</a>
+        •
+        <a href="https://github.com/daedal00" target="_blank">GitHub</a>
+        •
+        <a href="https://linkedin.com/in/samuelkim019" target="_blank"
+          >LinkedIn</a
+        >
+      </p>
+      <p class="footer-note">Shine, constantly and steadily. 2025</p>
+    </footer>
+  </main>
 </div>

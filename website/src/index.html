@@ -2,45 +2,87 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Samuel Kim - Portfolio</title>
-    <base href="/" />
+    <meta http-equiv="Content-Language" content="en" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="theme-color" content="#1db954" />
+    <meta name="author" content="Samuel Kim" />
+
+    <!-- Basic Meta -->
+    <title>Samuel Kim</title>
+    <meta name="title" content="Samuel Kim" />
     <meta
       name="description"
-      content="Samuel Kim's portfolio website with a Spotify-inspired theme"
+      content="Software engineer and developer. Building polished web applications and user experiences."
     />
 
-    <!-- Favicon icons -->
+    <!-- Theme colors for different color schemes -->
+    <meta
+      name="theme-color"
+      content="#000000"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <!-- Font Preloading - Inter for better typography -->
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link
+      rel="preload"
+      href="https://rsms.me/inter/font-files/InterVariable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="https://rsms.me/inter/font-files/InterVariable-Italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <!-- Favicon icons - Multiple formats for better support -->
+    <link rel="icon" href="assets/favicons/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="assets/favicons/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/web/icons8-spotify-ios-17-filled-16.png"
+      href="assets/favicons/favicon-16x16.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/web/icons8-spotify-ios-17-filled-32.png"
+      href="assets/favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="assets/web/icons8-spotify-ios-17-filled-192.png"
+      href="assets/favicons/android-chrome-192x192.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="assets/web/icons8-spotify-ios-17-filled-180.png"
+      href="assets/favicons/apple-touch-icon.png"
     />
 
     <!-- Web App Manifest -->
-    <link rel="manifest" href="assets/web/manifest.json" />
+    <link rel="manifest" href="assets/favicons/site.webmanifest" />
+
+    <!-- Inter Font CSS -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   </head>
   <body>
     <app-root></app-root>

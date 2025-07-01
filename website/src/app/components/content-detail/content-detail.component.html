@@ -1,117 +1,124 @@
-<div class="detail-container" *ngIf="content">
-  <div class="detail-header">
-    <button class="close-btn" (click)="closeDetail()">
-      <i class="bi bi-x-lg"></i>
+<div class="content-detail" *ngIf="content">
+  <nav class="detail-nav">
+    <button class="back-button" (click)="goBack()" aria-label="Go back">
+      ← {{ getBackButtonText() }}
     </button>
-  </div>
+  </nav>
 
-  <div class="detail-content">
-    <!-- Content Image -->
-    <div
-      class="content-image"
-      *ngIf="
-        content.imageUrl &&
-        content.imageUrl !== 'assets/images/default-item.jpg'
-      "
-      (click)="openImageInNewTab()"
-    >
-      <img [src]="content.imageUrl" [alt]="content.title" />
-    </div>
+  <article class="detail-article">
+    <header class="detail-header">
+      <h1 class="detail-title">{{ content.title }}</h1>
+      <p class="detail-subtitle" *ngIf="content.subtitle">
+        {{ content.subtitle }}
+      </p>
+      <p
+        class="detail-meta"
+        *ngIf="content.details && content.details['Duration']"
+      >
+        {{ content.details["Duration"] }}
+      </p>
+    </header>
 
-    <div class="content-info">
-      <h2 class="content-title">{{ content.title }}</h2>
-      <div class="content-subtitle">{{ content.subtitle }}</div>
-      <p class="content-description">{{ content.description }}</p>
+    <div class="detail-content">
+      <p class="detail-description">{{ content.description }}</p>
 
-      <div class="content-metadata">
-        <!-- Only display Duration and Date from details object if they exist -->
-        <div
-          *ngFor="let detail of content.details | keyvalue"
-          class="metadata-item"
+      <div
+        class="detail-links"
+        *ngIf="
+          content.link ||
+          content.liveWebsiteLink ||
+          content.documentationLink ||
+          content.reportLink ||
+          content.notebookLink
+        "
+      >
+        <a
+          *ngIf="content.link"
+          [href]="content.link"
+          target="_blank"
+          class="detail-link"
         >
-          <div class="label">{{ detail.key }}</div>
-
-          <!-- Display technology icons if the key is 'Technologies' -->
-          <div
-            class="value"
-            *ngIf="detail.key !== 'Technologies'; else techIcons"
-          >
-            {{ detail.value }}
-          </div>
-
-          <ng-template #techIcons>
-            <div class="tech-icons" *ngIf="isArray(detail.value)">
-              <div class="tech-item" *ngFor="let tech of detail.value">
-                <i [class]="tech.icon"></i>
-                <span>{{ tech.name }}</span>
-              </div>
-            </div>
-            <div class="value" *ngIf="!isArray(detail.value)">
-              {{ detail.value }}
-            </div>
-          </ng-template>
-        </div>
+          GitHub →
+        </a>
+        <a
+          *ngIf="content.liveWebsiteLink"
+          [href]="content.liveWebsiteLink"
+          target="_blank"
+          class="detail-link"
+        >
+          Live Demo →
+        </a>
+        <a
+          *ngIf="content.documentationLink"
+          [href]="content.documentationLink"
+          target="_blank"
+          class="detail-link"
+        >
+          Documentation →
+        </a>
+        <a
+          *ngIf="content.reportLink"
+          [href]="content.reportLink"
+          target="_blank"
+          class="detail-link"
+        >
+          Report →
+        </a>
+        <a
+          *ngIf="content.notebookLink"
+          [href]="content.notebookLink"
+          target="_blank"
+          class="detail-link"
+        >
+          Notebook →
+        </a>
+        <a
+          *ngIf="content.wallpaperLink"
+          [href]="content.wallpaperLink"
+          target="_blank"
+          class="detail-link"
+        >
+          Wallpaper →
+        </a>
       </div>
 
-      <div class="content-actions">
-        <!-- Documentation Link Button -->
-        <div *ngIf="content.documentationLink" class="content-link">
-          <button class="link-btn" (click)="openDocumentationLink()">
-            <i class="bi bi-file-earmark-text"></i>
-            <span>Open Documentation</span>
-          </button>
-        </div>
-
-        <!-- Live Website Button -->
-        <div *ngIf="content.liveWebsiteLink" class="content-link">
-          <button
-            class="link-btn live-site-btn"
-            (click)="openLiveWebsiteLink()"
-          >
-            <i class="bi bi-globe"></i>
-            <span>Visit Live Website</span>
-          </button>
-        </div>
-
-        <!-- Report PDF Button -->
-        <div *ngIf="content.reportLink" class="content-link">
-          <button class="link-btn report-btn" (click)="openReportLink()">
-            <i class="bi bi-file-earmark-pdf"></i>
-            <span>View Final Report</span>
-          </button>
-        </div>
-
-        <!-- Notebook PDF Button -->
-        <div *ngIf="content.notebookLink" class="content-link">
-          <button class="link-btn notebook-btn" (click)="openNotebookLink()">
-            <i class="bi bi-journal-code"></i>
-            <span>View Jupyter Notebook</span>
-          </button>
-        </div>
-
-        <!-- Wallpaper Download Button -->
-        <div *ngIf="content.wallpaperLink" class="content-link">
-          <button class="link-btn wallpaper-btn" (click)="openWallpaperLink()">
-            <i class="bi bi-image"></i>
-            <span>Download Wallpaper</span>
-          </button>
-        </div>
-
-        <!-- GitHub Repository Link -->
-        <div *ngIf="content.link" class="content-link">
-          <button class="link-btn" (click)="openExternalLink()">
-            <i class="bi bi-github"></i>
-            <span>Open GitHub Repository</span>
-          </button>
+      <div class="detail-info" *ngIf="content.details">
+        <div
+          *ngFor="let key of getContentKeys(content.details)"
+          class="detail-info-section"
+          [class.hidden]="shouldHideSection(key, content.details[key])"
+        >
+          <h3 class="detail-info-title">{{ key }}</h3>
+          <div class="detail-info-content">
+            <ng-container *ngIf="!isArray(content.details![key])">
+              <p>{{ content.details![key] }}</p>
+            </ng-container>
+            <ng-container *ngIf="isArray(content.details![key])">
+              <ul class="detail-tech-list">
+                <li
+                  *ngFor="let item of content.details![key]"
+                  class="detail-tech-item"
+                >
+                  <span *ngIf="item.name">{{ item.name }}</span>
+                  <span *ngIf="!item.name">{{ item }}</span>
+                </li>
+              </ul>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </div>
 
-<div class="empty-detail" *ngIf="!content">
-  <div class="empty-message">
-    <i class="bi bi-music-note-list"></i>
-    <p>Select an item to view details</p>
+<div class="not-found" *ngIf="!content">
+  <nav class="detail-nav">
+    <button class="back-button" (click)="goBack()" aria-label="Go back">
+      ← {{ getBackButtonText() }}
+    </button>
+  </nav>
+  <div class="not-found-content">
+    <h1>Content not found</h1>
+    <p>The requested content could not be found.</p>
   </div>
 </div>

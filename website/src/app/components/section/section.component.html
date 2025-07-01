@@ -1,0 +1,95 @@
+<div class="section-container" *ngIf="section">
+  <nav class="section-nav">
+    <button class="back-button" (click)="goBack()" aria-label="Go back">
+      ← Index
+    </button>
+  </nav>
+
+  <header class="section-header">
+    <h1>{{ section.name }}</h1>
+    <p class="description">{{ section.description }}</p>
+  </header>
+
+  <main class="main-content">
+    <div class="items-grid">
+      <article
+        *ngFor="let item of section.items"
+        class="item-card"
+        (click)="selectContent(item)"
+      >
+        <header class="item-header">
+          <h2>{{ item.title }}</h2>
+          <p class="item-subtitle">{{ item.subtitle }}</p>
+        </header>
+
+        <p class="item-description">{{ item.description }}</p>
+
+        <div
+          class="item-links"
+          *ngIf="
+            item.link ||
+            item.liveWebsiteLink ||
+            item.documentationLink ||
+            item.reportLink
+          "
+        >
+          <a
+            *ngIf="item.link"
+            [href]="item.link"
+            target="_blank"
+            class="item-link"
+            (click)="$event.stopPropagation()"
+          >
+            GitHub →
+          </a>
+          <a
+            *ngIf="item.liveWebsiteLink"
+            [href]="item.liveWebsiteLink"
+            target="_blank"
+            class="item-link"
+            (click)="$event.stopPropagation()"
+          >
+            Live Demo →
+          </a>
+          <a
+            *ngIf="item.documentationLink"
+            [href]="item.documentationLink"
+            target="_blank"
+            class="item-link"
+            (click)="$event.stopPropagation()"
+          >
+            Documentation →
+          </a>
+          <a
+            *ngIf="item.reportLink"
+            [href]="item.reportLink"
+            target="_blank"
+            class="item-link"
+            (click)="$event.stopPropagation()"
+          >
+            Report →
+          </a>
+        </div>
+
+        <div class="item-meta" *ngIf="item.date || item.duration">
+          <span *ngIf="item.date" class="item-date">{{ item.date }}</span>
+          <span *ngIf="item.duration" class="item-duration">{{
+            item.duration
+          }}</span>
+        </div>
+      </article>
+    </div>
+  </main>
+</div>
+
+<div class="not-found" *ngIf="!section">
+  <nav class="section-nav">
+    <button class="back-button" (click)="goBack()" aria-label="Go back">
+      ← Index
+    </button>
+  </nav>
+  <div class="not-found-content">
+    <h1>Section not found</h1>
+    <p>The requested section could not be found.</p>
+  </div>
+</div>

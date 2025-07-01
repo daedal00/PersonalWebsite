@@ -20,6 +20,21 @@ export interface Technology {
   icon: string;
 }
 
+export interface Section {
+  id: string;
+  name: string;
+  description: string;
+  type: SectionType;
+  items: Content[];
+}
+
+export enum SectionType {
+  PROJECTS = 'projects',
+  EXPERIENCE = 'experience',
+  EDUCATION = 'education',
+  SKILLS = 'skills',
+}
+
 export interface Playlist {
   id: string;
   name: string;
