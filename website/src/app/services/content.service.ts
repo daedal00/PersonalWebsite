@@ -438,25 +438,32 @@ export class ContentService {
           {
             id: 'exp1',
             title: 'Software Engineer Intern',
-            subtitle: 'Savi Finance',
+            subtitle: 'Savi Finance – Fintech startup (1.7k users)',
             description:
-              'Developed income and expense categorization systems, automated email parsing, and led database migrations in a fast-paced fintech environment.',
+              'Launched core categorization features, automated transaction-email ingestion with AWS and OpenAI, and led zero-downtime database migrations at Savi Finance, a fintech startup offering AI-powered personal finance tools that help users track spending, set financial goals, and sync accounts from 15,000+ institutions with bank-grade encryption and real-time updates',
             imageUrl: '',
             details: {
               Duration: 'January 2024 - August 2024',
               Location: 'Remote',
+              'Company Overview':
+                'Savi Finance (financesavi.com) is a fintech startup offering AI-powered personal finance tools that help users track spending, set and achieve financial goals, and sync accounts from 15,000+ institutions with bank-grade encryption and real-time updates',
               Technologies: [
                 { name: 'TypeScript', icon: 'devicon-typescript-plain' },
                 { name: 'GraphQL', icon: 'devicon-graphql-plain' },
                 { name: 'Node.js', icon: 'devicon-nodejs-plain' },
-                { name: 'Nx', icon: 'devicon-nixos-plain' },
+                { name: 'Nx Remote', icon: 'devicon-nixos-plain' },
               ],
-              'Key Achievements':
-                'Developed income and expense categorization system in just 7 days. Automated transaction email parsing using AWS and OpenAI 4o-mini, reducing customer workload by 35 seconds.',
-              Leadership:
-                'Led an 8-step, zero-downtime database migration ensuring uninterrupted service.',
-              Collaboration:
-                'Worked with cross-functional team of 5 to architect technical documents for automation processes.',
+              'Key Achievements': [
+                'Launched a core income/expense categorization feature in 7 days, enabling product team to ship ahead of schedule and meet customer expectations',
+                'Automated transaction-email ingestion pipeline with AWS (SES, SNS, SQS) and OpenAI 4o-mini, improving data consistency for 400+ users and eliminating manual categorization steps (~35 sec saved per email)',
+                'Led an 8-step, zero-downtime database migration, ensuring uninterrupted service across all financial platforms',
+                'Verified GraphQL microservice endpoints using Playground, curl & MongoDB Compass, implemented Jest smoke tests to catch regressions before production, boosting release confidence',
+                'Authored three Agile-ready technical specifications (API design, workflow automation, categorization logic) alongside PMs, designers, and consultants to accelerate releases',
+              ],
+              'Technical Impact':
+                'Delivered production-ready features that improved user experience for 1.7k+ users while maintaining system reliability and data integrity',
+              'Cross-functional Collaboration':
+                'Worked closely with product managers, designers, and consultants to translate business requirements into technical specifications and deliverables',
             },
             date: 'January 2024 - August 2024',
             duration: '8 months',
