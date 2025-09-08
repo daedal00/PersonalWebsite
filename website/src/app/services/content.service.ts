@@ -436,6 +436,41 @@ export class ContentService {
         type: SectionType.EXPERIENCE,
         items: [
           {
+            id: 'exp2',
+            title: 'Software Engineer (Part-time)',
+            subtitle: 'ConnectPie – Cloud integration for restaurants',
+            description:
+              'Designed and implemented a multi-tenant order delivery system that bridges Ecwid e-commerce platform with legacy Windows XP-based POS systems, ensuring real-time takeout order delivery with zero data loss for local restaurants',
+            imageUrl: '',
+            details: {
+              Duration: 'July 2025 - Present',
+              Location: 'Port Coquitlam, BC',
+              'Company Overview':
+                'ConnectPie integrates modern cloud services with legacy POS systems for local restaurants, enabling them to process online takeout orders without manual intervention',
+              Technologies: [
+                { name: 'Python', icon: 'devicon-python-plain' },
+                { name: 'FastAPI', icon: 'devicon-fastapi-plain' },
+                { name: 'AWS', icon: 'devicon-amazonwebservices-plain' },
+                { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
+                { name: 'Pulumi', icon: 'devicon-pulumi-plain' },
+                { name: 'Docker', icon: 'devicon-docker-plain' },
+              ],
+              'Key Contributions': [
+                'Designed a multi-tenant order delivery system that receives Ecwid webhooks in AWS, persists them in PostgreSQL, and delivers them via polling agents to on-prem POS machines',
+                'Implemented REST APIs in FastAPI for webhook ingestion, order persistence, and POS agent polling with long-polling and ACK semantics for reliable delivery',
+                'Provisioned AWS resources (API Gateway, Lambda, RDS) using Pulumi as Infrastructure-as-Code for reproducible deployments and cost-efficient scaling',
+                'Built fault tolerance features including order queuing for offline POS agents, retry mechanisms, and "effectively once" delivery semantics',
+                'Authored comprehensive Confluence documentation covering architecture decisions, system diagrams, and scaling strategies',
+              ],
+              'Technical Impact':
+                'Enabled restaurants using legacy POS systems to process online takeout orders without manual intervention, with zero-loss delivery guarantee even during connectivity issues',
+              'System Architecture':
+                'Created a scalable solution supporting restaurants with different POS setups while guaranteeing reliability through idempotent delivery state tracking',
+            },
+            date: 'July 2025 - Present',
+            duration: 'Ongoing',
+          },
+          {
             id: 'exp1',
             title: 'Software Engineer Intern',
             subtitle: 'Savi Finance – Fintech startup (1.7k users)',
